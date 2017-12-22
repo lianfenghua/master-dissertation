@@ -1,0 +1,138 @@
+% \chapter{Analysis of Flow Characteristics}
+\chapter{Results and Discussion}
+\section{Flow Patterns and Vorticity}
+\subsection{Steady state (L2) and unsteady state (L3)}
+For each Darcy number, the flow is at steady state when Reynolds number is small. As Reynolds number increases, the flow state will become unsteady.
+For each Darcy number, there is a critical Reynolds number that means the flow state change from steady to unsteady. Figure \ref{fig: Cl_t} shows three cases of lift coefficient with time. The critical Reynolds number can be estimated from Figure \ref{fig: Cl_t}, Figure \ref{fig: resd} and Figure \ref{fig: error}.  These critical Reynolds numbers are shown in Table \ref{tab: critical Re}.
+Figure \ref{fig: resd} shows the error of different Reynolds number and Darcy number.
+\begin{table}[]
+	\centering
+	\caption{The critical Reynolds numbers.}\label{tab: critical Re}
+	$\begin{array}{c|c}
+	\hline
+	Da & \mathrm{Critical}\, Re \\ \hline
+	0.00001& ?   \\
+	0.0001 & 40-45 \\
+	0.001  & 40-45 \\
+	0.005  & ?   \\
+	0.01   & 140-160 \\
+	0.1    & >200\\
+	\hline
+	\end{array}$
+\end{table}
+\begin{figure}
+	\centering
+	\subcaptionbox{$Re$=40}
+	{\includegraphics[scale=.7]{../figs/0.0001_40/Cl_t}}
+	\subcaptionbox{$Re$=45}
+	{\includegraphics[scale=.7]{../figs/0.0001_45/Cl_t}}
+	\caption{Temporal variation of lift coefficient with time at different Reynolds number. $Da$=0.0001.}
+	\label{fig: Cl_t}
+\end{figure}
+\begin{figure}
+	\centering
+	\subcaptionbox{$Re=40$}
+	{\includegraphics[scale=.7]{../figs/0.0001_40/resd}}
+	\subcaptionbox{$Re=45$}
+	{\includegraphics[scale=.7]{../figs/0.0001_45/resd}}
+	\caption{The error with time steps. $Da=0.0001$}
+	\label{fig: resd}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=.7]{../analysis/meanError_Re}
+	\caption{Variation of the mean error (Resor0) with $Re$.}
+	\label{fig: error}
+\end{figure}
+
+\subsection{Vorticity contours}
+According to the measurement data, we can get instantaneous spanwise
+vorticity contours for different Darcy number and Reynolds number. 
+Furthermore, we can get the vortex's shedding during a whole period
+for unsteady flow state.
+\begin{figure}[h]
+	\centering
+	\subcaptionbox{$Re$ = 40}
+	{\includegraphics[scale=.2]{../figs/0.0001_40/flow}}
+	\subcaptionbox{$Re$ = 45}
+	{\includegraphics[scale=.2]{../figs/0.0001_45/flow}}
+	\subcaptionbox{$Re$ = 50}
+	{\includegraphics[scale=.2]{../figs/0.0001_50/flow}}
+	\subcaptionbox{$Re$ = 90}
+	{\includegraphics[scale=.2]{../figs/0.0001_90/flow}}
+	\subcaptionbox{$Re$ = 140}
+	{\includegraphics[scale=.2]{../figs/0.0001_140/flow}}
+	\subcaptionbox{$Re$ = 200}
+	{\includegraphics[scale=.2]{../figs/0.0001_200/flow}}
+	\caption{Vorticity contours for different Reynolds numbers.
+		$Da$ = 0.0001.}
+\end{figure}
+
+
+\section{Drag and Lift Coefficients, and Strouhal Number}
+\subsection{Drag and Lift Coefficients}
+Figure \ref{fig: meanCd} shows the variation of mean drag coefficient. For $Da=0.0001$ and $Da=0.001$, the value of the mean drag coefficient decrease with the increase of Reynold number and then have an increase with Reynold number.
+\begin{figure}[h]
+	\centering
+	\subcaptionbox{Re: 50-200}
+	{\includegraphics[scale=.8]{../analysis/meanCd_Re_old}}
+	\subcaptionbox{Re: 40, 45, 50-200}
+	{\includegraphics[scale=.8]{../analysis/meanCd_Re}}
+	\caption{Variation of mean drag coefficients with $Re$.}
+	\label{fig: meanCd}
+\end{figure}
+
+\subsection{Strouhal Number}
+For flow at unsteady state, the period of flow fluctuation is calculated
+according to the measurement data such as the horizontal velocity of Point 3.
+Then we can get the frequencies from calculated periods and obtain
+Strouhaul numbers further according to Equation \ref{eq: St}.
+\begin{equation}\label{eq: St}
+St = \frac{Df}{U} = f = \frac{1}{T}
+\end{equation}
+These periods and Strouhaul numbers are recorded in \texttt{record.xlsx}, 
+and the curves that describe the change of periods and Strouhaul numbers
+along with Reynolds numbers are also shown.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=.8]{../analysis/St_Re}
+	\caption{Variation of Strouhal number with $Re$.}
+\end{figure}
+
+For unsteady flow, vorticity contours during the whole period can be obtained. Figure \ref{fig: 4*vortex}
+\begin{figure}[h]
+	\centering
+	\subcaptionbox{0}
+	{\includegraphics[scale=.2]{../figs/0.0001_100/T0}}
+	\subcaptionbox{1/4}
+	{\includegraphics[scale=.2]{../figs/0.0001_100/T1}}
+	\subcaptionbox{2/4}
+	{\includegraphics[scale=.2]{../figs/0.0001_100/T2}}
+	\subcaptionbox{3/4}
+	{\includegraphics[scale=.2]{../figs/0.0001_100/T3}}
+	\caption{The vortex's shedding at 0, 1/4, 2/4, and 3/4 period.
+		$Da$=0.0001, $Re$=100.}
+	\label{fig: 4*vortex}
+\end{figure}
+
+
+\section{Energy Spectrum Analysis} % FFT
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=.7]{../figs/0.0001_50/psd_U}
+	\includegraphics[scale=.7]{../figs/0.0001_50/psd_V}
+	\caption{Velocities and their discrete Fourier transform. $Da$=0.0001, $Re$=50.}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=.7]{../figs/0.0001_50/psd_Cl}
+	\caption{Lift Coefficient and its discrete Fourier transform. $Da$=0.0001, $Re$=50.}
+\end{figure}
+
+
+\section{The Influence of Porous Media on Flow State\\
+	---Comparison with Flow Around Solid Circular Cylinders}
+\section{The Transition of Flow Pattern from Steady State to Unsteady State\\
+	---Comparison with Steady Flow with Lower Reynolds Number}
+\section{Summary}
