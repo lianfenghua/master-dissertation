@@ -11,7 +11,7 @@ Figure \ref{fig: resd} shows the error of different Reynolds number and Darcy nu
 	$\begin{array}{c|c}
 	\hline
 	Da & \mathrm{Critical}\, Re \\ \hline
-	0.00001& ?   \\
+	0.00001& 40-45   \\
 	0.0001 & 40-45 \\
 	0.001  & 40-45 \\
 	0.005  & ?   \\
@@ -41,7 +41,7 @@ Figure \ref{fig: resd} shows the error of different Reynolds number and Darcy nu
 \begin{figure}
 	\centering
 	\includegraphics[scale=.7]{../analysis/meanError_Re}
-	\caption{Variation of the mean error (Resor0) with $Re$.}
+	\caption{Variation of the mean error with $Re$.}
 	\label{fig: error}
 \end{figure}
 
@@ -72,12 +72,9 @@ for unsteady flow state.
 \section{Drag and Lift Coefficients, and Strouhal Number}
 \subsection{Drag and Lift Coefficients}
 Figure \ref{fig: meanCd} shows the variation of mean drag coefficient. For $Da=0.0001$ and $Da=0.001$, the value of the mean drag coefficient decrease with the increase of Reynold number and then have an increase with Reynold number.
-\begin{figure}[h]
+\begin{figure}
 	\centering
-	\subcaptionbox{Re: 50-200}
-	{\includegraphics[scale=.8]{../analysis/meanCd_Re_old}}
-	\subcaptionbox{Re: 40, 45, 50-200}
-	{\includegraphics[scale=.8]{../analysis/meanCd_Re}}
+	\includegraphics[scale=.8]{../analysis/meanCd_Re}
 	\caption{Variation of mean drag coefficients with $Re$.}
 	\label{fig: meanCd}
 \end{figure}
@@ -98,6 +95,7 @@ along with Reynolds numbers are also shown.
 	\centering
 	\includegraphics[scale=.8]{../analysis/St_Re}
 	\caption{Variation of Strouhal number with $Re$.}
+	\label{fig: St}
 \end{figure}
 
 For unsteady flow, vorticity contours during the whole period can be obtained. Figure \ref{fig: 4*vortex}
