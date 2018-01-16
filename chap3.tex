@@ -19,7 +19,7 @@ For each Darcy number, the flow is at steady state when Reynolds number is small
 	\hline
 	\end{array}$
 \end{table}
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\subcaptionbox{$Re=40$}
 	{\includegraphics[scale=.7]{../figs/0.0001_40/Cl_t}}
@@ -28,7 +28,7 @@ For each Darcy number, the flow is at steady state when Reynolds number is small
 	\caption{Temporal variation of lift coefficient with time at different Reynolds number. $Da=0.0001$.}
 	\label{fig: Cl_t}
 \end{figure}
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\subcaptionbox{$Re=40$}
 	{\includegraphics[scale=.7]{../figs/0.0001_40/resd}}
@@ -37,7 +37,7 @@ For each Darcy number, the flow is at steady state when Reynolds number is small
 	\caption{The error with time steps. $Da=0.0001$}
 	\label{fig: resd}
 \end{figure}
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=.7]{../analysis/meanError_Re}
 	\caption{Variation of the mean error with $Re$.}
@@ -47,7 +47,7 @@ For each Darcy number, the flow is at steady state when Reynolds number is small
 \subsection{Vorticity contours}
 According to the measurement data, we can get instantaneous spanwise vorticity contours for different Darcy number and Reynolds number. Furthermore, we can get the vortex's shedding during a whole period for unsteady flow state.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\subcaptionbox{$Re=40$}
 	{\includegraphics[scale=.2]{../figs/0.0001_40/flow}}
@@ -70,7 +70,7 @@ According to the measurement data, we can get instantaneous spanwise vorticity c
 \subsection{Drag and Lift Coefficients}
 Figure \ref{fig: meanCd} shows the variation of mean drag coefficient. For $Da=0.0001$ and $Da=0.001$, the value of the mean drag coefficient decrease with the increase of Reynold number and then have an increase with Reynold number.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=.8]{../analysis/meanCd_Re}
 	\caption{Variation of mean drag coefficients with $Re$.}
@@ -84,7 +84,7 @@ St = \frac{Df}{U} = f = \frac{1}{T}
 \end{equation}
 These periods and Strouhaul numbers are recorded in \texttt{record.xlsx}, and the curves that describe the change of periods and Strouhaul numbers along with Reynolds numbers are also shown.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=.8]{../analysis/St_Re}
 	\caption{Variation of Strouhal number with $Re$.}
@@ -93,7 +93,7 @@ These periods and Strouhaul numbers are recorded in \texttt{record.xlsx}, and th
 
 For unsteady flow, vorticity contours during the whole period can be obtained. Figure \ref{fig: 4*vortex}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\subcaptionbox{0}
 	{\includegraphics[scale=.2]{../figs/0.0001_100/T0}}
@@ -110,7 +110,7 @@ For unsteady flow, vorticity contours during the whole period can be obtained. F
 
 
 \section{Energy Spectrum Analysis} % FFT
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=.7]{../figs/0.0001_50/psd_U}
 	\includegraphics[scale=.7]{../figs/0.0001_50/psd_V}
