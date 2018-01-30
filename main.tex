@@ -1,32 +1,19 @@
-\documentclass[a4paper]{report}
+% !Mode:: "TeX:UTF-8"
+\documentclass[capcenterlast=true,subcapcenterlast=true,openright=false,fontset=windowsnew,type=master]{hithesis}
 
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{caption,subcaption}
-\usepackage{booktabs}
-\usepackage{multirow}
-\usepackage{float}
+\usepackage{hithesis}
+%\graphicspath={{figs/}}
 
-\bibliographystyle{unsrt}
-
-\geometry{left=2.6cm, right=2.6cm, top=3.0cm, bottom=2.5cm}
-
-%\includeonly{chap2,chap3}
-
-\title{Unsteady Flow Around and Through\\
-	Porous Circular Cylinders}
-\author{}
-\date{}
+\bibliographystyle{hithesis}
 
 \begin{document}
-%\maketitle
+
 \tableofcontents
 
-\include{chap1}
-\include{chap2}
-\include{chap3}
-\include{chap4}
-
+\include{body/chap1}
+\include{body/chap2}
+\include{body/chap3}
+\include{body/chap4}
 
 \bibliography{references}
 

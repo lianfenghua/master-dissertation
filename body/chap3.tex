@@ -19,27 +19,42 @@ For each Darcy number, the flow is at steady state when Reynolds number is small
 	\hline
 	\end{array}$
 \end{table}
-\begin{figure}[H]
+
+\begin{figure}[!h]
+	\setlength{\subfigcapskip}{-1bp}
 	\centering
-	\subcaptionbox{$Re=40$}
-	{\includegraphics[scale=.7]{../figs/0.0001_40/Cl_t}}
-	\subcaptionbox{$Re=45$}
-	{\includegraphics[scale=.7]{../figs/0.0001_45/Cl_t}}
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=40$]{\includegraphics[width=0.8\textwidth]{../figs/0.0001_40/Cl_t}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=45$]{\includegraphics[width=0.8\textwidth]{../figs/0.0001_45/Cl_t}}
+	\end{minipage}
+	\vspace{0.2em}
 	\caption{Temporal variation of lift coefficient with time at different Reynolds number. $Da=0.0001$.}
 	\label{fig: Cl_t}
 \end{figure}
-\begin{figure}[H]
+
+\begin{figure}[!h]
 	\centering
-	\subcaptionbox{$Re=40$}
-	{\includegraphics[scale=.7]{../figs/0.0001_40/resd}}
-	\subcaptionbox{$Re=45$}
-	{\includegraphics[scale=.7]{../figs/0.0001_45/resd}}
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=40$]{\includegraphics[width=0.8\textwidth]{../figs/0.0001_40/resd}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=45$]{\includegraphics[width=0.8\textwidth]{../figs/0.0001_45/resd}}
+	\end{minipage}
 	\caption{The error with time steps. $Da=0.0001$}
 	\label{fig: resd}
 \end{figure}
-\begin{figure}[H]
+
+\begin{figure}[]
 	\centering
-	\includegraphics[scale=.7]{../analysis/meanError_Re}
+	\includegraphics[width=0.8\textwidth]{../analysis/meanError_Re}
 	\caption{Variation of the mean error with $Re$.}
 	\label{fig: error}
 \end{figure}
@@ -47,20 +62,25 @@ For each Darcy number, the flow is at steady state when Reynolds number is small
 \subsection{Vorticity contours}
 According to the measurement data, we can get instantaneous spanwise vorticity contours for different Darcy number and Reynolds number. Furthermore, we can get the vortex's shedding during a whole period for unsteady flow state.
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
-	\subcaptionbox{$Re=40$}
-	{\includegraphics[scale=.2]{../figs/0.0001_40/flow}}
-	\subcaptionbox{$Re=45$}
-	{\includegraphics[scale=.2]{../figs/0.0001_45/flow}}
-	\subcaptionbox{$Re=50$}
-	{\includegraphics[scale=.2]{../figs/0.0001_50/flow}}
-	\subcaptionbox{$Re=90$}
-	{\includegraphics[scale=.2]{../figs/0.0001_90/flow}}
-	\subcaptionbox{$Re=140$}
-	{\includegraphics[scale=.2]{../figs/0.0001_140/flow}}
-	\subcaptionbox{$Re=200$}
-	{\includegraphics[scale=.2]{../figs/0.0001_200/flow}}
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=40$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_40/flow}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_45/flow}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=50$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_50/flow}}
+		\subfigure[$Re=90$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_90/flow}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=140$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_140/flow}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_200/flow}}
+	\end{minipage}
 	\caption{Vorticity contours for different Reynolds numbers.
 		$Da=0.0001$.}
 \end{figure}
@@ -70,9 +90,9 @@ According to the measurement data, we can get instantaneous spanwise vorticity c
 \subsection{Drag and Lift Coefficients}
 Figure \ref{fig: meanCd} shows the variation of mean drag coefficient. For $Da=0.0001$ and $Da=0.001$, the value of the mean drag coefficient decrease with the increase of Reynold number and then have an increase with Reynold number.
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
-	\includegraphics[scale=.8]{../analysis/meanCd_Re}
+	\includegraphics[width=0.8\textwidth]{../analysis/meanCd_Re}
 	\caption{Variation of mean drag coefficients with $Re$.}
 	\label{fig: meanCd}
 \end{figure}
@@ -84,25 +104,28 @@ St = \frac{Df}{U} = f = \frac{1}{T}
 \end{equation}
 These periods and Strouhaul numbers are recorded in \texttt{record.xlsx}, and the curves that describe the change of periods and Strouhaul numbers along with Reynolds numbers are also shown.
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
-	\includegraphics[scale=.8]{../analysis/St_Re}
+	\includegraphics[width=0.8\textwidth]{../analysis/St_Re}
 	\caption{Variation of Strouhal number with $Re$.}
 	\label{fig: St}
 \end{figure}
 
 For unsteady flow, vorticity contours during the whole period can be obtained. Figure \ref{fig: 4*vortex}
 
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
-	\subcaptionbox{0}
-	{\includegraphics[scale=.2]{../figs/0.0001_100/T0}}
-	\subcaptionbox{1/4}
-	{\includegraphics[scale=.2]{../figs/0.0001_100/T1}}
-	\subcaptionbox{2/4}
-	{\includegraphics[scale=.2]{../figs/0.0001_100/T2}}
-	\subcaptionbox{3/4}
-	{\includegraphics[scale=.2]{../figs/0.0001_100/T3}}
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[0]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T0}}
+		\subfigure[1/4]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T1}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[2/4]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T2}}
+		\subfigure[3/4]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T3}}
+	\end{minipage}
 	\caption{The vortex's shedding at 0, 1/4, 2/4, and 3/4 period.
 		$Da=0.0001$, $Re=100$.}
 	\label{fig: 4*vortex}
@@ -110,15 +133,23 @@ For unsteady flow, vorticity contours during the whole period can be obtained. F
 
 
 \section{Energy Spectrum Analysis} % FFT
-\begin{figure}[H]
+\begin{figure}[]
 	\centering
-	\includegraphics[scale=.7]{../figs/0.0001_50/psd_U}
-	\includegraphics[scale=.7]{../figs/0.0001_50/psd_V}
+	\begin{minipage}{\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{../figs/0.0001_50/psd_U}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{../figs/0.0001_50/psd_V}
+	\end{minipage}
 	\caption{Velocities and their discrete Fourier transform. $Da=0.0001$, $Re=50$.}
 \end{figure}
+
 \begin{figure}
 	\centering
-	\includegraphics[scale=.7]{../figs/0.0001_50/psd_Cl}
+	\includegraphics[width=0.8\textwidth]{../figs/0.0001_50/psd_Cl}
 	\caption{Lift Coefficient and its discrete Fourier transform. $Da=0.0001$, $Re=50$.}
 \end{figure}
 
