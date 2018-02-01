@@ -2,19 +2,25 @@
 \documentclass[capcenterlast=true,subcapcenterlast=true,openright=false,fontset=windowsnew,type=master]{hithesis}
 
 \usepackage{hithesis}
-%\graphicspath={{figs/}}
-
 \bibliographystyle{hithesis}
 
 \begin{document}
 
+\frontmatter
+% \input{front/cover}
+% \makecover
 \tableofcontents
 
+\mainmatter
 \include{body/chap1}
 \include{body/chap2}
 \include{body/chap3}
-\include{body/chap4}
 
+\backmatter
+\include{back/conclusion}
 \bibliography{references}
+%\authorization
+%\include{back/acknowledgements}
+%\include{back/resume}
 
 \end{document}

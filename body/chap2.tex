@@ -1,27 +1,30 @@
-\chapter{Numerical Simulation of Unsteady Laminar Flow}
-\section{Problem Description}
-\subsection{Governing Equations} % homogenous fluid region, and porous region
+% !Mode:: "TeX:UTF-8"
+\chapter{非稳态层流的数值模拟}
 
-\subsection{Boundary Conditions} % Including interface between the homogeneous fluid and porous medium regions
+\section{问题描述}
 
+\subsection{控制方程} % homogenous fluid region, and porous region
 
-\section{Numerical Methods}
-\subsection{Discrete Methods of Time and Space}
-\subsection{Solver} % SIMPLE
-\subsection{Mesh Generation and Independence Analysis}
-The flow domain is chosen to be a square with length of side 60. In order to obtain the fluid state of both inner and outer of the cylinder, the flow domain is divided into three blocks two of whom are in the cylinder and the other is out, as described in Figure \ref{fig: grid}. The grid size is shown in Table \ref{tab: grid}. The Reynolds number and the Darcy number are 100 and 0.0001 separately.
+\subsection{边界条件} % Including interface between the homogeneous fluid and porous medium regions
 
+\section{数值方法}
 
+\subsection{时间和空间的离散方法}
 
+\subsection{求解器} % SIMPLE
+
+\subsection{网格生成和网格独立性分析}
+
+流动区域设定为边长60的正方形。为了获得圆柱内外的流动状态，流动区域被划分为三块，其中有两块位于圆柱内部，一块位于圆柱外部，见图~\ref{fig: grid}。网格尺寸见表~\ref{tab: grid}。雷诺数和达西数分别为100和0.0001。
 \begin{figure}[]
 	\centering
 	\includegraphics[scale=.6]{../diagrams/grid}
-	\caption{The partition of grid blocks.}\label{fig: grid}
+	\caption{网格划分}\label{fig: grid}
 \end{figure}
+
 \begin{table}[]
 	\centering
-	\caption{Grid size.}
-	\label{tab: grid}
+	\caption{网格尺寸}\label{tab: grid}
 	\begin{tabular}{@{}cccccc@{}}
 		\toprule
 		\multicolumn{2}{c}{Blocks}  & Block 1  & Block 2   & Block 3 & Mean drag coefficient    \\ \midrule
@@ -34,5 +37,4 @@ The flow domain is chosen to be a square with length of side 60. In order to obt
 	\end{tabular}
 \end{table}
 
-
-\section{Summary}
+\section{本章小结}

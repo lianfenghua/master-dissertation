@@ -1,12 +1,15 @@
-% \chapter{Analysis of Flow Characteristics}
-\chapter{Results and Discussion}
-\section{Flow Patterns and Vorticity}
-\subsection{Steady state (L2) and unsteady state (L3)}
-For each Darcy number, the flow is at steady state when Reynolds number is small. As Reynolds number increases, the flow state will become unsteady. For each Darcy number, there is a critical Reynolds number that means the flow state change from steady to unsteady. Figure \ref{fig: Cl_t} shows three cases of lift coefficient with time. The critical Reynolds number can be estimated from Figure \ref{fig: Cl_t}, Figure \ref{fig: resd} and Figure \ref{fig: error}.  These critical Reynolds numbers are shown in Table \ref{tab: critical Re}. Figure \ref{fig: resd} shows the error of different Reynolds number and Darcy number.
+% !Mode:: "TeX:UTF-8"
+\chapter{结果和讨论}
+
+\section{流动实例和涡量图}
+
+\subsection{稳态和非稳态}
+
+对于每个达西数，当雷诺数较小时，流动处于稳态。随着雷诺数的增加，流动逐渐转变为非稳态。所以，对于每个达西数，都存在一个标志着流动状态转变的临界雷诺数。图~\ref{fig: Cl_t}~显示了升力系数随时间变化的三种情形。临界雷诺数可从图~\ref{fig: Cl_t}、图~\ref{fig: resd}~和图~\ref{fig: error}~上得到。这些临界雷诺数列在表~\ref{tab: critical Re}~中。图~\ref{fig: resd}~展示了不同雷诺数和达西数下的误差。
 
 \begin{table}[]
 	\centering
-	\caption{The critical Reynolds numbers.}\label{tab: critical Re}
+	\caption{临界雷诺数}\label{tab: critical Re}
 	$\begin{array}{c|c}
 	\hline
 	Da & \mathrm{Critical}\, Re \\ \hline
@@ -33,7 +36,7 @@ For each Darcy number, the flow is at steady state when Reynolds number is small
 		\subfigure[$Re=45$]{\includegraphics[width=0.8\textwidth]{../figs/0.0001_45/Cl_t}}
 	\end{minipage}
 	\vspace{0.2em}
-	\caption{Temporal variation of lift coefficient with time at different Reynolds number. $Da=0.0001$.}
+	\caption{不同雷诺数下升力系数随时间的变化 $Da=0.0001$.}
 	\label{fig: Cl_t}
 \end{figure}
 
@@ -48,19 +51,20 @@ For each Darcy number, the flow is at steady state when Reynolds number is small
 		\centering
 		\subfigure[$Re=45$]{\includegraphics[width=0.8\textwidth]{../figs/0.0001_45/resd}}
 	\end{minipage}
-	\caption{The error with time steps. $Da=0.0001$}
+	\caption{误差 $Da=0.0001$}
 	\label{fig: resd}
 \end{figure}
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.8\textwidth]{../analysis/meanError_Re}
-	\caption{Variation of the mean error with $Re$.}
+	\caption{平均误差随$Re$的变化}
 	\label{fig: error}
 \end{figure}
 
-\subsection{Vorticity contours}
-According to the measurement data, we can get instantaneous spanwise vorticity contours for different Darcy number and Reynolds number. Furthermore, we can get the vortex's shedding during a whole period for unsteady flow state.
+\subsection{等涡线图}
+
+根据测量数据，可以得到不同达西数和雷诺数下的涡的等值线图。还可以得到非稳态情形下一个周期内涡的脱落情形。
 
 \begin{figure}[]
 	\centering
@@ -81,37 +85,38 @@ According to the measurement data, we can get instantaneous spanwise vorticity c
 		\subfigure[$Re=140$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_140/flow}}
 		\subfigure[$Re=200$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_200/flow}}
 	\end{minipage}
-	\caption{Vorticity contours for different Reynolds numbers.
-		$Da=0.0001$.}
+	\caption{不同雷诺数下涡量的等值线图 $Da=0.0001$.}
 \end{figure}
 
+\section{阻力、升力系数，Strouhal数}
 
-\section{Drag and Lift Coefficients, and Strouhal Number}
-\subsection{Drag and Lift Coefficients}
-Figure \ref{fig: meanCd} shows the variation of mean drag coefficient. For $Da=0.0001$ and $Da=0.001$, the value of the mean drag coefficient decrease with the increase of Reynold number and then have an increase with Reynold number.
+\subsection{阻力和升力系数}
+
+图~\ref{fig: meanCd}~展示了平均阻力系数的变化。对于$Da=0.0001$、$Da=0.001$，平均阻力系数随着雷诺数的增加而减小，然后随雷诺数的增加而增加。
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.8\textwidth]{../analysis/meanCd_Re}
-	\caption{Variation of mean drag coefficients with $Re$.}
+	\caption{平均阻力系数随$Re$的变化}
 	\label{fig: meanCd}
 \end{figure}
 
-\subsection{Strouhal Number}
-For flow at unsteady state, the period of flow fluctuation is calculated according to the measurement data such as the horizontal velocity of Point 3. Then we can get the frequencies from calculated periods and obtain Strouhaul numbers further according to Equation \ref{eq: St}.
+\subsection{Strouhal数}
+
+对于非稳态流动，流动波动的周期可以根据测量数据（例如Point 3的水平速度）求出。继而根据方程(\ref{eq: St})可以得到Strouhaul数。
 \begin{equation}\label{eq: St}
-St = \frac{Df}{U} = f = \frac{1}{T}
+	St = \frac{Df}{U} = f = \frac{1}{T}
 \end{equation}
-These periods and Strouhaul numbers are recorded in \texttt{record.xlsx}, and the curves that describe the change of periods and Strouhaul numbers along with Reynolds numbers are also shown.
+得到的周期和Strouhaul数记录在\texttt{record.xlsx}中。
 
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.8\textwidth]{../analysis/St_Re}
-	\caption{Variation of Strouhal number with $Re$.}
+	\caption{Strouhal数随$Re$的变化}
 	\label{fig: St}
 \end{figure}
 
-For unsteady flow, vorticity contours during the whole period can be obtained. Figure \ref{fig: 4*vortex}
+对于非稳态流动，一个周期内的涡量图如~\ref{fig: 4*vortex}~所示。
 
 \begin{figure}[]
 	\centering
@@ -126,13 +131,12 @@ For unsteady flow, vorticity contours during the whole period can be obtained. F
 		\subfigure[2/4]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T2}}
 		\subfigure[3/4]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T3}}
 	\end{minipage}
-	\caption{The vortex's shedding at 0, 1/4, 2/4, and 3/4 period.
-		$Da=0.0001$, $Re=100$.}
+	\caption{在0，1/4，2/4，和3/4周期时涡的脱落图 $Da=0.0001$，$Re=100$}
 	\label{fig: 4*vortex}
 \end{figure}
 
+\section{能谱分析} % FFT
 
-\section{Energy Spectrum Analysis} % FFT
 \begin{figure}[]
 	\centering
 	\begin{minipage}{\textwidth}
@@ -144,22 +148,17 @@ For unsteady flow, vorticity contours during the whole period can be obtained. F
 		\centering
 		\includegraphics[width=0.8\textwidth]{../figs/0.0001_50/psd_V}
 	\end{minipage}
-	\caption{Velocities and their discrete Fourier transform. $Da=0.0001$, $Re=50$.}
+	\caption{Fourier变换 $Da=0.0001$, $Re=50$.}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{../figs/0.0001_50/psd_Cl}
-	\caption{Lift Coefficient and its discrete Fourier transform. $Da=0.0001$, $Re=50$.}
+	\caption{升力系数和Fourier变换 $Da=0.0001$, $Re=50$.}
 \end{figure}
 
+\section{多孔介质对流动状态的影响---与固体圆柱绕流相比}
 
-\section{The Influence of Porous Media on Flow State\\
-	---Comparison with Flow Around Solid Circular Cylinders}
+\section{流动状态从稳态向非稳态的转变---与稳态圆柱绕流相比}
 
-
-\section{The Transition of Flow Pattern from Steady State to Unsteady State\\
-	---Comparison with Steady Flow with Lower Reynolds Number}
-
-
-\section{Summary}
+\section{本章小结}
