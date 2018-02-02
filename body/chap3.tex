@@ -1,13 +1,14 @@
 % !Mode:: "TeX:UTF-8"
+% !TEX root = ../main.tex
 \chapter{结果和讨论}
 
 \section{流动实例和涡量图}
 
 \subsection{稳态和非稳态}
 
-对于每个达西数，当雷诺数较小时，流动处于稳态。随着雷诺数的增加，流动逐渐转变为非稳态。所以，对于每个达西数，都存在一个标志着流动状态转变的临界雷诺数。图~\ref{fig: Cl_t}~显示了升力系数随时间变化的三种情形。临界雷诺数可从图~\ref{fig: Cl_t}、图~\ref{fig: resd}~和图~\ref{fig: error}~上得到。这些临界雷诺数列在表~\ref{tab: critical Re}~中。图~\ref{fig: resd}~展示了不同雷诺数和达西数下的误差。
+对于每个达西数，当雷诺数较小时，流动处于稳态。随着雷诺数的增加，流动逐渐转变为非稳态。所以，对于每个达西数，都存在一个标志着流动状态转变的临界雷诺数。图~\ref{fig: Cl_t} 显示了升力系数随时间变化的三种情形。临界雷诺数可从图~\ref{fig: Cl_t}、图~\ref{fig: resd} 和图~\ref{fig: error} 上得到。这些临界雷诺数列在表~\ref{tab: critical Re} 中。图~\ref{fig: resd} 展示了不同雷诺数和达西数下的误差。
 
-\begin{table}[]
+\begin{table}
 	\centering
 	\caption{临界雷诺数}\label{tab: critical Re}
 	$\begin{array}{c|c}
@@ -23,7 +24,7 @@
 	\end{array}$
 \end{table}
 
-\begin{figure}[!h]
+\begin{figure}
 	\setlength{\subfigcapskip}{-1bp}
 	\centering
 	\begin{minipage}{\textwidth}
@@ -40,7 +41,7 @@
 	\label{fig: Cl_t}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
@@ -55,10 +56,10 @@
 	\label{fig: resd}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{../analysis/meanError_Re}
-	\caption{平均误差随$Re$的变化}
+	\caption{平均误差随 $Re$ 的变化}
 	\label{fig: error}
 \end{figure}
 
@@ -66,7 +67,7 @@
 
 根据测量数据，可以得到不同达西数和雷诺数下的涡的等值线图。还可以得到非稳态情形下一个周期内涡的脱落情形。
 
-\begin{figure}[]
+\begin{figure}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
@@ -92,33 +93,33 @@
 
 \subsection{阻力和升力系数}
 
-图~\ref{fig: meanCd}~展示了平均阻力系数的变化。对于$Da=0.0001$、$Da=0.001$，平均阻力系数随着雷诺数的增加而减小，然后随雷诺数的增加而增加。
+图~\ref{fig: meanCd} 展示了平均阻力系数的变化。对于 $Da=0.0001$、$Da=0.001$，平均阻力系数随着雷诺数的增加而减小，然后随雷诺数的增加而增加。
 
-\begin{figure}[]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{../analysis/meanCd_Re}
-	\caption{平均阻力系数随$Re$的变化}
+	\caption{平均阻力系数随 $Re$ 的变化}
 	\label{fig: meanCd}
 \end{figure}
 
 \subsection{Strouhal数}
 
-对于非稳态流动，流动波动的周期可以根据测量数据（例如Point 3的水平速度）求出。继而根据方程(\ref{eq: St})可以得到Strouhaul数。
+对于非稳态流动，流动波动的周期可以根据测量数据（例如Point 3的水平速度）求出。继而根据方程 \eqref{eq: St} 可以得到Strouhaul数。
 \begin{equation}\label{eq: St}
 	St = \frac{Df}{U} = f = \frac{1}{T}
 \end{equation}
-得到的周期和Strouhaul数记录在\texttt{record.xlsx}中。
+得到的周期和Strouhaul数记录在 \texttt{record.xlsx} 中。
 
-\begin{figure}[]
+\begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{../analysis/St_Re}
 	\caption{Strouhal数随$Re$的变化}
 	\label{fig: St}
 \end{figure}
 
-对于非稳态流动，一个周期内的涡量图如~\ref{fig: 4*vortex}~所示。
+对于非稳态流动，一个周期内的涡量图如~\ref{fig: 4*vortex} 所示。
 
-\begin{figure}[]
+\begin{figure}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
@@ -131,13 +132,13 @@
 		\subfigure[2/4]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T2}}
 		\subfigure[3/4]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T3}}
 	\end{minipage}
-	\caption{在0，1/4，2/4，和3/4周期时涡的脱落图 $Da=0.0001$，$Re=100$}
+	\caption{在 0，1/4，2/4，和 3/4 周期时涡的脱落图 $Da=0.0001$，$Re=100$}
 	\label{fig: 4*vortex}
 \end{figure}
 
 \section{能谱分析} % FFT
 
-\begin{figure}[]
+\begin{figure}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
@@ -148,13 +149,13 @@
 		\centering
 		\includegraphics[width=0.8\textwidth]{../figs/0.0001_50/psd_V}
 	\end{minipage}
-	\caption{Fourier变换 $Da=0.0001$, $Re=50$.}
+	\caption{Fourier 变换 $Da=0.0001$, $Re=50$.}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{../figs/0.0001_50/psd_Cl}
-	\caption{升力系数和Fourier变换 $Da=0.0001$, $Re=50$.}
+	\caption{升力系数和 Fourier 变换 $Da=0.0001$, $Re=50$.}
 \end{figure}
 
 \section{多孔介质对流动状态的影响---与固体圆柱绕流相比}

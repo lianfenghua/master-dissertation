@@ -1,4 +1,5 @@
 % !Mode:: "TeX:UTF-8"
+% !TEX root = ../main.tex
 \chapter{非稳态层流的数值模拟}
 
 \section{问题描述}
@@ -15,14 +16,14 @@
 
 \subsection{网格生成和网格独立性分析}
 
-流动区域设定为边长60的正方形。为了获得圆柱内外的流动状态，流动区域被划分为三块，其中有两块位于圆柱内部，一块位于圆柱外部，见图~\ref{fig: grid}。网格尺寸见表~\ref{tab: grid}。雷诺数和达西数分别为100和0.0001。
-\begin{figure}[]
+流动区域设定为边长 60 的正方形。为了获得圆柱内外的流动状态，流动区域被划分为三块，其中有两块位于圆柱内部，一块位于圆柱外部，见图~\ref{fig: grid}。网格尺寸见表~\ref{tab: grid}。雷诺数和达西数分别为 100 和 0.0001 。
+\begin{figure}
 	\centering
 	\includegraphics[scale=.6]{../diagrams/grid}
 	\caption{网格划分}\label{fig: grid}
 \end{figure}
 
-\begin{table}[]
+\begin{table}
 	\centering
 	\caption{网格尺寸}\label{tab: grid}
 	\begin{tabular}{@{}cccccc@{}}
