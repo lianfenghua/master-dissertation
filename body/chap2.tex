@@ -16,7 +16,7 @@
 
 \subsection{网格生成和网格独立性分析}
 
-流动区域设定为边长 60 的正方形。为了获得圆柱内外的流动状态，流动区域被划分为三块，其中有两块位于圆柱内部，一块位于圆柱外部，见图~\ref{fig: grid}。网格尺寸见表~\ref{tab: grid}。雷诺数和达西数分别为 100 和 0.0001 。
+流动区域设定为边长 60 的正方形。为了获得圆柱内外的流动状态，流动区域被划分为三块，其中有两块位于圆柱内部，一块位于圆柱外部，见图~\ref{fig: grid}。网格尺寸见表~\ref{tab: grid}。雷诺数和达西数分别为 100 和 0.0001。
 \begin{figure}
 	\centering
 	\includegraphics[scale=.6]{../diagrams/grid}
@@ -24,17 +24,19 @@
 \end{figure}
 
 \begin{table}
-	\centering
 	\caption{网格尺寸}\label{tab: grid}
-	\begin{tabular}{@{}cccccc@{}}
-		\toprule
-		\multicolumn{2}{c}{Blocks}  & Block 1  & Block 2   & Block 3 & Mean drag coefficient    \\ \midrule
-		\multirow{4}{*}{Grid size} 
-		& Case 1 & 40 $\times$ 40 & 160 $\times$ 25 & 160 $\times$ 140   & 1.2354 \\
-		& Case 2 & 60 $\times$ 60 & 240 $\times$ 30 & 240 $\times$ 170   & 1.2426 \\
-		& Case 3 & 80 $\times$ 80 & 320 $\times$ 40 & 320 $\times$ 200   & 1.2462 \\
-		& Case 4 & 100 $\times$ 100 & 400 $\times$ 50 & 400 $\times$ 230 & 1.2417 \\
-		\bottomrule
+	\vspace{.5em}\centering\wuhao
+	\begin{tabular}{ccccc}
+		\toprule[1.5pt]
+		\multirow{2}[3]{*}{序号} & \multicolumn{3}{c}{网格尺寸} & \multirow{2}[3]{*}{平均阻力系数} \\
+		\cmidrule[.67pt](lr){2-4}
+		& Block 1 & Block 2 & Block 3 & \\
+		\midrule[1pt]
+		1 & 40 $\times$ 40 & 160 $\times$ 25 & 160 $\times$ 140 & 1.2354 \\
+		2 & 60 $\times$ 60 & 240 $\times$ 30 & 240 $\times$ 170 & 1.2426 \\
+		3 & 80 $\times$ 80 & 320 $\times$ 40 & 320 $\times$ 200 & 1.2462 \\
+		4 & 100 $\times$ 100 & 400 $\times$ 50 & 400 $\times$ 230 & 1.2417 \\
+		\bottomrule[1.5pt]
 	\end{tabular}
 \end{table}
 
