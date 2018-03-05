@@ -7,9 +7,10 @@
 \begin{document}
 
 \frontmatter
-%\input{front/cover}
-%\makecover
-\tableofcontents
+\input{front/cover} % 封面
+\makecover
+%\input{front/denotation}%物理量名称表,符合规范为主，有要求添加
+\tableofcontents    % 中文目录
 
 \mainmatter
 \include{body/chap1}
@@ -17,10 +18,16 @@
 \include{body/chap3}
 
 \backmatter
-%\include{back/conclusion}
+\include{back/conclusion}   % 结论
 \bibliography{reference}
-%\authorization
-%\include{back/acknowledgements}
-%\include{back/resume}
+%\begin{appendix}%附录
+%    \input{back/appA.tex}
+%\end{appendix}
+%\include{back/publications}    % 所发文章
+%\include{back/ceindex}    % 索引, 根据自己的情况添加或者不添加，选择自动添加或者手工添加。
+\authorization %授权
+%\authorization[saomiao.pdf] %添加扫描页的命令，与上互斥
+\include{back/acknowledgements} %致谢
+\include{back/resume}          % 博士学位论文有个人简介
 
 \end{document}
