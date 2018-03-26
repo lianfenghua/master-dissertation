@@ -1,227 +1,51 @@
 % !Mode:: "TeX:UTF-8"
 % !TEX root = ../main.tex
-\chapter{结果和讨论}
+\chapter{多孔圆柱绕流的数值求解模型}
 
-\section{流动实例和流场图}
+\section{问题描述}
 
-\subsection{稳态流动和非稳态流动}
+\subsection{控制方程} % homogenous fluid region, and porous region
 
-固定达西数，当雷诺数较小时，流动处于稳态；随着雷诺数的增加，流动逐渐转变为非稳态。所以，对于每个达西数，都存在一个临界雷诺数，该雷诺数标志着流动状态的转变。临界雷诺数可以从升力系数随时间的变化图（$C_l$-$t$ 图）中得到。例如，图~\ref{fig: Cl_t} 显示了不同雷诺数下升力系数随时间的变化。当 $Da=0.0001$ 时，当 $Re=40$ 时，升力系数随着时间逐渐减小，并最终减小到一个极小的值，因此 $Re=40$ 时流动尚处于稳态。当 $Re=45$ 时，升力系数不会随时间减小，而是几乎稳定地波动，因此 $Re=45$ 时流动已经处于非稳态。由此可知，$Da=0.0001$ 所对应的临界雷诺数处于 40 和 45 之间。其他达西数所对应的临界雷诺数可以由同样的方法得出，最终得到的临界雷诺数列于表~\ref{tab: critical Re} 中。另外，临界雷诺数还可以从图~\ref{fig: Cl_t}、图~\ref{fig: resd} 和图~\ref{fig: error} 上得到。图~\ref{fig: resd} 展示了不同雷诺数和达西数下的误差。
+\subsection{边界条件} % Including interface between the homogeneous fluid and porous medium regions
 
-表~\ref{tab: DaRe} 列出了达西数和雷诺数可能的组合值。
+\section{离散方法}
+
+\subsection{时间的离散}
+
+\subsection{空间的离散}
+
+\section{求解模型} %即求解器？SIMPLE
+
+\section{网格划分}
+
+\subsection{网格生成}
+
+流动区域设定为边长 60 的正方形。为了获得圆柱内外的流动状态，流动区域被划分为三块，其中有两块位于圆柱内部，一块位于圆柱外部，见图~\ref{fig: grid}。网格尺寸见表~\ref{tab: grid}。雷诺数和达西数分别为 100 和 0.0001。
+\begin{figure}
+	\centering
+	\includegraphics[scale=.6]{../diagrams/grid}
+	\caption{网格划分}\label{fig: grid}
+\end{figure}
+
+\subsection{网格无关性分析}
 
 \begin{table}
-	\caption{计算时用到的达西数和雷诺数的值的设置}\label{tab: DaRe}
+	\caption{网格尺寸}\label{tab: grid}
 	\vspace{.5em}\centering\wuhao
-	\begin{tabular}{*{6}{c}}
+	\begin{tabular}{ccccc}
 		\toprule[1.5pt]
-		\multirow{2}[3]{*}{$Re$} & \multicolumn{5}{c}{$Da$} \\
-		\cmidrule[.67pt](lr){2-6}
-		& 0.00001 & 0.0001 & 0.0005 & 0.001 & 0.005 \\
+		\multirow{2}[3]{*}{序号} & \multicolumn{3}{c}{网格尺寸} & \multirow{2}[3]{*}{平均阻力系数} \\
+		\cmidrule[.67pt](lr){2-4}
+		& Block 1 & Block 2 & Block 3 & \\
 		\midrule[1pt]
-		40 & ${\color{red}\surd}$ & $\surd$ &   & $\surd$ & $\surd$ \\
-		41 & $\surd$ & $\surd$ &   & $\surd$ &   \\
-		42 & ${\color{red}\surd}$ &   & $\surd$ & $\surd$ &   \\
-		43 & ${\color{red}\surd}$ &   & $\surd$ & $\surd$ &   \\
-		44 & ${\color{red}\surd}$ &   & $\surd$ & $\surd$ &   \\
-		45 & ${\color{red}\surd}$ &   & $\surd$ & $\surd$ &   \\
-		46 & $\surd$ &         &   &         &   \\
-		47 & $\surd$ &         &   &         &   \\
-		48 & $\surd$ &         &   &         &   \\
-		49 & $\surd$ &         &   &         &   \\
-		50 & ${\color{red}\surd}$ & $\surd$ &   & $\surd$ & $\surd$ \\
-		60 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & $\surd$ \\
-		70 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & $\surd$ \\
-		80 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & $\surd$ \\
-		90 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & $\surd$ \\
-		100 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & $\surd$ \\
-		120 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & $\surd$ \\
-		140 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & $\surd$ \\
-		160 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & $\surd$ \\
-		180 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & $\surd$ \\
-		200 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & $\surd$ \\
+		1 & 40 $\times$ 40 & 160 $\times$ 25 & 160 $\times$ 140 & 1.2354 \\
+		2 & 60 $\times$ 60 & 240 $\times$ 30 & 240 $\times$ 170 & 1.2426 \\
+		3 & 80 $\times$ 80 & 320 $\times$ 40 & 320 $\times$ 200 & 1.2462 \\
+		4 & 100 $\times$ 100 & 400 $\times$ 50 & 400 $\times$ 230 & 1.2417 \\
 		\bottomrule[1.5pt]
 	\end{tabular}
 \end{table}
 
-\begin{figure}
-	\setlength{\subfigcapskip}{-1bp}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=40$]{\includegraphics[width=0.8\textwidth]{../figs/0.0001_40/Cl_t}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=45$]{\includegraphics[width=0.8\textwidth]{../figs/0.0001_45/Cl_t}}
-	\end{minipage}
-	\vspace{0.2em}
-	\caption{不同雷诺数下升力系数随时间的变化（$Da=0.0001$）}
-	\label{fig: Cl_t}
-\end{figure}
-
-\begin{table}
-	\caption{临界雷诺数}\label{tab: critical Re}
-	\vspace{.5em}\centering\wuhao
-	\begin{tabular}{cc}
-		\toprule[1.5pt]
-		$Da$ & 临界 $Re$ \\
-		\midrule[1pt]
-		0.00001 & 40--45 \\
-		0.0001  & 40--45 \\
-		0.001   & 40--45 \\
-		0.005   & ? \\
-		0.01    & 140--160 \\
-		0.1     & > 200 \\
-	\bottomrule[1.5pt]
-	\end{tabular}
-\end{table}
-
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=40$]{\includegraphics[width=0.8\textwidth]{../figs/0.0001_40/resd}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=45$]{\includegraphics[width=0.8\textwidth]{../figs/0.0001_45/resd}}
-	\end{minipage}
-	\caption{误差 $Da=0.0001$}
-	\label{fig: resd}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{../analysis/meanError_Re}
-	\caption{平均误差随 $Re$ 的变化}
-	\label{fig: error}
-\end{figure}
-
-\subsection{不同参数下的流场图}
-
-根据测量数据，可以得到不同达西数和雷诺数下涡量的等值线图。图~\ref{fig: vorticity contour} 展示了 $Da=0.0001$ 时不同雷诺数下流动已达稳定 \footnote{此处“稳定”一词对应于“stable”，指流动特性不随时间变化，或随时间做周期性变化，因此不同于“稳态”，指特性不随时间变化。} 时涡量的等值线图。从图中可以看出，$Re=40$ 时流动处于稳态，随着雷诺数的增大，流动逐渐变为非稳态，并在圆柱的后端产生了一对旋涡，涡脱落之后向下游移动，形成一列整齐的涡街。
-
-%还可以得到非稳态情形下一个周期内涡的脱落情形。
-
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=40$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_40/flow}}
-		\subfigure[$Re=45$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_45/flow}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=50$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_50/flow}}
-		\subfigure[$Re=90$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_90/flow}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=140$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_140/flow}}
-		\subfigure[$Re=200$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_200/flow}}
-	\end{minipage}
-	\caption{不同雷诺数下涡量的等值线图 $Da=0.0001$.}
-	\label{fig: vorticity contour}
-\end{figure}
-
-\section{Strouhal 数和阻力、升力系数}
-
-\subsection{Strouhal 数}
-
-对于非稳态流动，流动波动的频率是一个重要参数。而 Strouhal 数是表述流体波动的无量纲频率。频率与周期互为倒数，周期可以根据测量数据（例如 Point 3 的水平速度）从图中得出。继而根据方程 \eqref{eq: St} 可以得到 Strouhal 数。式 \eqref{eq: St} 描述了这些物理量之间的关系：
-\begin{equation}\label{eq: St}
-	St = \frac{Df}{U} = f = \frac{1}{T}
-\end{equation}
-\begin{tabularx}{\textwidth}{@{}l@{\quad}r@{——}X@{}}
-	式中 & $St$ & Strouhal 数；\\
-		& $D$ & 圆柱的直径，$=1$ m；\\
-		& $f$ & 波动的频率；\\
-		& $U$ & 远方的来流速度，$=1$ m/s；\\
-		& $T$ & 波动的周期。 
-\end{tabularx}\vspace{3.15bp}
-得到的周期和 Strouhal 数记录在 \texttt{record.xlsx} 中。
-
-Strouhal 数随雷诺数的变化如图~\ref{fig: St} 所示。从图中可以看出，$Da$ 固定时，$St$ 随 $Re$ 的增大而增大。固定 $Re$ 时，$Da$ 越小，则 $St$ 越接近固体圆柱绕流的情形。当 $Da=1 \times 10^{-5}$ 时，$St$ 曲线已经和固体圆柱绕流的变化曲线 \cite{} 相吻合。
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{../analysis/St_Re2}
-	\caption{Strouhal 数随 $Re$ 的变化}
-	\label{fig: St}
-\end{figure}
-
-对于非稳态流动，一个周期内的涡量图如~\ref{fig: 4*vortex} 所示。
-
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[0]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T0}}
-		\subfigure[1/4]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T1}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[2/4]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T2}}
-		\subfigure[3/4]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_100/T3}}
-	\end{minipage}
-	\caption{在 0，1/4，2/4，和 3/4 周期时涡的脱落图 $Da=0.0001$，$Re=100$}
-	\label{fig: 4*vortex}
-\end{figure}
-
-\subsection{阻力和升力系数}
-
-非稳态情形下阻力和升力都随时间做周期性变化，所以此处取一个周期内的平均阻力和升力。平均阻力系数随雷诺数的变化如图~\ref{fig: meanCd} 所示。对于 $Da=0.0001$、$Da=0.001$，平均阻力系数随着雷诺数的增加而减小，然后随雷诺数的增加而增加。
-
-升力系数波动的振幅随雷诺数的变化如图~\ref{fig: ClAmplitude} 所示，与文献结果一致 \cite{Park1998}。
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{../analysis/meanCd_Re2}
-	\caption{平均阻力系数随 $Re$ 的变化}
-	\label{fig: meanCd}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{../analysis/ClAmplitude_Re}
-	\caption{升力系数波动的振幅随 $Re$ 的变化}
-	\label{fig: ClAmplitude}
-\end{figure}
-
-\section{能谱分析} % FFT
-
-速度随时间的变化以及相应的 Fourier 变换如图~\ref{fig: velocity Fourier} 所示。升力系数随时间的变化以及相应的 Fourier 变换如图~\ref{fig: Cl Fourier} 所示。图中画出了稳定时的 10 个周期。
-
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\includegraphics[width=0.8\textwidth]{../figs/0.0001_50/psd_U}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\includegraphics[width=0.8\textwidth]{../figs/0.0001_50/psd_V}
-	\end{minipage}
-	\caption{Fourier 变换 $Da=0.0001$, $Re=50$.}
-	\label{fig: velocity Fourier}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{../figs/0.0001_50/psd_Cl}
-	\caption{升力系数和 Fourier 变换 $Da=0.0001$, $Re=50$.}
-	\label{fig: Cl Fourier}
-\end{figure}
-
-\section{多孔介质对流动状态的影响---与固体圆柱绕流相比}
-
-\section{流动状态从稳态向非稳态的转变---与稳态圆柱绕流相比}
+\section{结果验证}
 
 \section{本章小结}
