@@ -1,10 +1,10 @@
 % !Mode:: "TeX:UTF-8"
 % !TEX root = ../main.tex
-\chapter{结果和讨论}
+\chapter{结果与讨论}
 
 \section{流动实例和流场图}
 
-\subsection{稳态流动和非稳态流动}
+\subsection{从稳态流动到非稳态流动}
 
 固定达西数，当雷诺数较小时，流动处于稳态；随着雷诺数的增加，流动逐渐转变为非稳态。所以，对于每个达西数，都存在一个临界雷诺数，该雷诺数标志着流动状态的转变。临界雷诺数可以从升力系数随时间的变化图（$C_l$-$t$ 图）中得到。例如，图~\ref{fig: Cl_t} 显示了不同雷诺数下升力系数随时间的变化。当 $Da=0.0001$ 时，当 $Re=40$ 时，升力系数随着时间逐渐减小，并最终减小到一个极小的值，因此 $Re=40$ 时流动尚处于稳态。当 $Re=45$ 时，升力系数不会随时间减小，而是几乎稳定地波动，因此 $Re=45$ 时流动已经处于非稳态。由此可知，$Da=0.0001$ 所对应的临界雷诺数处于 40 和 45 之间。其他达西数所对应的临界雷诺数可以由同样的方法得出，最终得到的临界雷诺数列于表~\ref{tab: critical Re} 中。另外，临界雷诺数还可以从图~\ref{fig: Cl_t}、图~\ref{fig: resd} 和图~\ref{fig: error} 上得到。图~\ref{fig: resd} 展示了不同雷诺数和达西数下的误差。
 
@@ -125,7 +125,76 @@
 		\subfigure[$Re=140$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_140/flow}}
 		\subfigure[$Re=200$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_200/flow}}
 	\end{minipage}
-	\caption{不同雷诺数下涡量的等值线图 $Da=0.0001$.}
+	\caption{$Da=0.0001$ 时不同雷诺数下涡量的等值线图}
+	\label{fig: vorticity contour}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=40$]{\includegraphics[width=0.4\textwidth]{../figs/0.001_40/flow}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.4\textwidth]{../figs/0.001_45/flow}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=50$]{\includegraphics[width=0.4\textwidth]{../figs/0.001_50/flow}}
+		\subfigure[$Re=90$]{\includegraphics[width=0.4\textwidth]{../figs/0.001_90/flow}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=140$]{\includegraphics[width=0.4\textwidth]{../figs/0.001_140/flow}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.4\textwidth]{../figs/0.001_200/flow}}
+	\end{minipage}
+	\caption{$Da=0.001$ 时不同雷诺数下涡量的等值线图}
+	\label{fig: vorticity contour}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=40$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_40/flow}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_45/flow}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=50$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_50/flow}}
+		\subfigure[$Re=90$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_90/flow}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=140$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_140/flow}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_200/flow}}
+	\end{minipage}
+	\caption{$Da=0.0001$ 时不同雷诺数下涡量的等值线图}
+	\label{fig: vorticity contour}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=40$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_40/flow}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_45/flow}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=50$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_50/flow}}
+		\subfigure[$Re=90$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_90/flow}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=140$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_140/flow}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.4\textwidth]{../figs/0.0001_200/flow}}
+	\end{minipage}
+	\caption{$Da=0.0001$ 时不同雷诺数下涡量的等值线图}
 	\label{fig: vorticity contour}
 \end{figure}
 
@@ -174,11 +243,9 @@ Strouhal 数随雷诺数的变化如图~\ref{fig: St} 所示。从图中可以�
 	\label{fig: 4*vortex}
 \end{figure}
 
-\subsection{阻力和升力系数}
+\subsection{阻力系数}
 
 非稳态情形下阻力和升力都随时间做周期性变化，所以此处取一个周期内的平均阻力和升力。平均阻力系数随雷诺数的变化如图~\ref{fig: meanCd} 所示。对于 $Da=0.0001$、$Da=0.001$，平均阻力系数随着雷诺数的增加而减小，然后随雷诺数的增加而增加。
-
-升力系数波动的振幅随雷诺数的变化如图~\ref{fig: ClAmplitude} 所示，与文献结果一致 \cite{Park1998}。
 
 \begin{figure}
 	\centering
@@ -186,6 +253,10 @@ Strouhal 数随雷诺数的变化如图~\ref{fig: St} 所示。从图中可以�
 	\caption{平均阻力系数随 $Re$ 的变化}
 	\label{fig: meanCd}
 \end{figure}
+
+\subsection{升力系数}
+
+升力系数波动的振幅随雷诺数的变化如图~\ref{fig: ClAmplitude} 所示，与文献结果一致 \cite{Park1998}。
 
 \begin{figure}
 	\centering
