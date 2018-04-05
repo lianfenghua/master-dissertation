@@ -364,7 +364,7 @@ Forchheimer 项的积分近似如下
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=.6]{../diagrams/grid}
+	\includegraphics[scale=.6]{figs/grid}
 	\caption{网格划分}\label{fig: grid}
 \end{figure}
 
@@ -372,16 +372,30 @@ Forchheimer 项的积分近似如下
 
 \subsection{网格无关性分析}\label{sec: grid-independent}
 
-解的精度依赖于网格的疏密程度，一般情况下，随着网格数越来越多，网格划分得越来越致密，解的精度也随之提高，但同时计算量也越大，对计算资源的要求也越高。最终应该选择一个合适的网格密度，既使得解能够满足一定的精度要求，同时也可以保持较高的计算效率。为了确保解的精度，需要进行网格无关性验证。选择几种依次递增的网格密度，在同一条件、同一参数下进行数值计算，如果某一网格密度下的解与上一网格密度下的解之差满足了一定的精度要求，就可以认为该网格密度下得到的解已足够精确，从而可以选择该网格密度作为后续模拟的设定值。表~\ref{tab: grid}列出了四种由疏到密的网格尺寸。进行验证的雷诺数和达西数分别为 100 和 0.0001。计算结束后，根据数据得到的平均阻力系数也列在表~\ref{tab: grid}中。表格最后一列的数值表示，与上一行相比，改行平均阻力系数的变化率，即本行的阻力减去上一行的阻力再除以上一行的阻力。
+解的精度依赖于网格的疏密程度，一般情况下，随着网格数越来越多，网格划分得越来越致密，解的精度也随之提高，但同时计算量也越大，对计算资源的要求也越高。最终应该选择一个合适的网格密度，既使得解能够满足一定的精度要求，同时也可以保持较高的计算效率。为了确保解的精度，需要进行网格无关性验证。选择几种依次递增的网格密度，在同一条件、同一参数下进行数值计算（见表~\ref{tab: parameters}），如果某一网格密度下的解与上一网格密度下的解之差满足了一定的精度要求，就可以认为该网格密度下得到的解已足够精确，从而可以选择该网格密度作为后续模拟的设定值。表~\ref{tab: grid}列出了四种由疏到密的网格尺寸。进行验证的雷诺数和达西数分别为 100 和 0.0001。计算结束后，根据数据得到的平均阻力系数也列在表~\ref{tab: grid}中。表格最后一列的数值表示，与上一行相比，改行平均阻力系数的变化率，即本行的阻力减去上一行的阻力再除以上一行的阻力。
+
+\begin{table}
+	\caption{计算参数的设定}\label{tab: parameters}
+	\vspace{.5em}\centering\wuhao
+	\begin{tabular}{*{8}{c}}
+		\toprule[1.5pt]
+		$D$ & $L$ & $U_{\infty}$ & $\rho$ & $\varepsilon$ & $\beta_1$ & $\beta_2$ & $\Delta t$\\
+		\midrule[1pt]
+		1 m & 60 m & 1 m/s & 1 $\mathrm{kg}/\mathrm{m}^3$ & 0.7 & 0 & 0 & 0.001 \\
+		\bottomrule[1.5pt]
+	\end{tabular}
+\end{table}
+
+同时设定四个样本点，搜集各个物理量的信息，这四个点的坐标分别是 $(0,0),\,(1,0),\,(3,0),\,(1.5,1.5)$。
 
 \begin{table}
 	\caption{几种不同密度的网格尺寸及相应的阻力系数}\label{tab: grid}
 	\vspace{.5em}\centering\wuhao
 	\begin{tabular}{cccccc}
 		\toprule[1.5pt]
-		\multirow{2}[3]{*}{序号} & \multicolumn{3}{c}{网格尺寸} & \multirow{2}[3]{*}{平均阻力系数} & \multirow{2}[3]{*}{阻力系数变化率} \\
+		\multirow{2}[3]{*}{编号} & \multicolumn{3}{c}{网格尺寸} & \multirow{2}[3]{*}{平均阻力系数} & \multirow{2}[3]{*}{阻力系数变化率} \\
 		\cmidrule[.67pt](lr){2-4}
-		& 区块 1 & 区块 2 & 区块 3 & & \\
+		& 区域 1 & 区域 2 & 区域 3 & & \\
 		\midrule[1pt]
 		1 & 40 $\times$ 40 & 160 $\times$ 25 & 160 $\times$ 140 & 1.2354 & — \\
 		2 & 60 $\times$ 60 & 240 $\times$ 30 & 240 $\times$ 170 & 1.2426 & 0.58\% \\
@@ -413,7 +427,7 @@ Forchheimer 项的积分近似如下
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{../analysis/validation_Cd}
-	\caption{阻力系数 $C_d$ 的对比}
+	\caption{阻力系数 $C_D$ 的对比}
 	\label{fig: validation-Cd}
 \end{figure}
 
@@ -422,7 +436,7 @@ Forchheimer 项的积分近似如下
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{../analysis/validation_Cl}
-	\caption{升力系数 $C_l$ 的对比}
+	\caption{升力系数 $C_L$ 的对比}
 	\label{fig: validation-Cl}
 \end{figure}
 
