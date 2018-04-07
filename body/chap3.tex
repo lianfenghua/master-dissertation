@@ -60,11 +60,11 @@
 \end{gather}
 其中多孔介质中的速度 $u_n$ 指达西速度的切向分量，纯流体区域的速度 $u_n$ 指流体速度的切向分量。
 
-\section{离散方法}\label{sec: discretization method}
+%\section{离散方法}\label{sec: discretization method}
 
-\subsection{时间的离散}
+%\subsection{时间的离散}
 
-\subsection{空间的离散}
+%\subsection{空间的离散}
 
 \section{求解模型}\label{sec: model} %即求解器？SIMPLEC
 
@@ -89,7 +89,7 @@
 \end{tabularx}\vspace{3.15bp}
 假设控制体的中心点为 P，控制面分为东、南、西、北四部分，四个表面的中心点分别用字母 e、s、w、n 表示。方程中的四项分别表示随时间变化项、对流项、扩散项和源项，分别记为 $()$、$F^{\mathrm{c}}$、$F^{\mathrm{d}}$ 和 $Q_{\mathrm{P}}^{\phi}$。这样，公式 \eqref{eq: conservation} 可以简写为
 \begin{equation}
-	() + F^{\mathrm{c}} = F^{\mathrm{d}} + Q_{\mathrm{P}}^{\phi}
+	F^t + F^{\mathrm{c}} = F^{\mathrm{d}} + Q_{\mathrm{P}}^{\phi}
 \end{equation}
 下面将对方程中的每一项积分作出近似，近似方法参考 \cite{}。
 
@@ -313,7 +313,7 @@ Muzaferija\cite{} 提出了避免这一问题的有效方法。当连接 P、E �
 \end{equation}
 简记为以下各项
 \begin{equation}
-	() + F^{\mathrm{c}} = F^{\mathrm{d}} + Q_{\mathrm{P}}^{p^*} + Q_{\mathrm{P}}^{\mathrm{D}} + Q_{\mathrm{P}}^{\mathrm{F}}
+	F^t + F^{\mathrm{c}} = F^{\mathrm{d}} + Q_{\mathrm{P}}^{p^*} + Q_{\mathrm{P}}^{\mathrm{D}} + Q_{\mathrm{P}}^{\mathrm{F}}
 \end{equation}
 
 以水平方向为例（$i=1$）各项近似如下。
@@ -348,13 +348,13 @@ Forchheimer 项的积分近似如下
 	u_{\mathrm{e}}^{\mathrm{m}} = \overline{(u^m)}_{\mathrm{e}} - \Delta\varOmega \overline{\left(\frac{1}{A_{\mathrm{P}}^u+\sum_lA_l^u}\right)}_{\mathrm{e}} \left[\left(\frac{\partial(\varepsilon p^*)}{\partial x}\right)_{\mathrm{e}}-\overline{\left(\frac{\partial(\varepsilon p^*)}{\partial x}\right)}_{\mathrm{e}}\right]^{m-1}
 \end{equation}
 
-\subsection{界面的处理}
+%\subsection{界面的处理}
 
-由于采用多块网格，各个块之间需要设置边界条件，这些边界分为纯流体内部的边界、多孔介质内部的边界以及纯流体和多孔介质之间的边界。
+%由于采用多块网格，各个块之间需要设置边界条件，这些边界分为纯流体内部的边界、多孔介质内部的边界以及纯流体和多孔介质之间的边界。
 
-（1）同一介质内的界面
+%（1）同一介质内的界面
 
-（2）流体和多孔介质之间的界面
+%（2）流体和多孔介质之间的界面
 
 \section{网格划分}\label{sec: grid}
 
@@ -374,7 +374,7 @@ Forchheimer 项的积分近似如下
 
 解的精度依赖于网格的疏密程度，一般情况下，随着网格数越来越多，网格划分得越来越致密，解的精度也随之提高，但同时计算量也越大，对计算资源的要求也越高。最终应该选择一个合适的网格密度，既使得解能够满足一定的精度要求，同时也可以保持较高的计算效率。为了确保解的精度，需要进行网格无关性验证。选择几种依次递增的网格密度，在同一条件、同一参数下进行数值计算（见表~\ref{tab: parameters}），如果某一网格密度下的解与上一网格密度下的解之差满足了一定的精度要求，就可以认为该网格密度下得到的解已足够精确，从而可以选择该网格密度作为后续模拟的设定值。表~\ref{tab: grid}列出了四种由疏到密的网格尺寸。进行验证的雷诺数和达西数分别为 100 和 0.0001。计算结束后，根据数据得到的平均阻力系数也列在表~\ref{tab: grid}中。表格最后一列的数值表示，与上一行相比，改行平均阻力系数的变化率，即本行的阻力减去上一行的阻力再除以上一行的阻力。
 
-同时设定四个样本点，搜集各个物理量的信息，这四个点的坐标分别是 $(0,0),\,(1,0),\,(3,0),\,(1.5,1.5)$。
+同时设定四个样本点，搜集各个物理量的信息，这四个点的坐标分别是 (0,0)，(1,0)，(3,0)，(1.5,1.5)。
 
 从表~\ref{tab: grid}可以看出，四种情形下计算得到的阻力系数已比较接近，但仍然存在一些差别，网格 2 的阻力系数比网格 1 增大了 0.58\%，网格 3 的阻力系数比网格 2 增大了 0.29\%，网格 4 的阻力系数比网格 3 减小了 0.36\%。因为网格 3 和 2 之间的差别已足够小，达到了 0.3\%，满足了精度要求，所以在后续计算中将采用网格 3 作为数值模拟过程中的网格密度。
 

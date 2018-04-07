@@ -55,7 +55,7 @@
 		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../figs/0.0001_45/Cl_t}}
 	\end{minipage}
 	\vspace{0.2em}
-	\caption{不同雷诺数下升力系数随时间的变化（$Da=0.0001$）}
+	\caption{$Da=0.0001$ 时不同雷诺数下升力系数随时间的变化}
 	\label{fig: Cl_t-1e-4}
 \end{figure}
 
@@ -68,8 +68,21 @@
 		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../figs/0.001_45/Cl_t}}
 	\end{minipage}
 	\vspace{0.2em}
-	\caption{不同雷诺数下升力系数随时间的变化（$Da=0.001$）}
+	\caption{$Da=0.001$ 时不同雷诺数下升力系数随时间的变化}
 	\label{fig: Cl_t-1e-3}
+\end{figure}
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=40$]{\includegraphics[width=0.48\textwidth]{../figs/0.001_40/Cl_t}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../figs/0.001_45/Cl_t}}
+	\end{minipage}
+	\vspace{0.2em}
+	\caption{$Da=0.01$ 时不同雷诺数下升力系数随时间的变化（尚无）}
+	\label{fig: Cl_t-1e-2}
 \end{figure}
 
 同时，通过直接分析误差随时间的变化也可以判断流动状态。图~\ref{fig: resd}显示了 $Da=0.0001$ 时不同雷诺数下在计算过程中误差随时间步数的变化（包括 Resor0、Resor1、Resor2）。从图中可以看出，当 $Re=40$ 时，随着计算的进行，误差越来越小，并最终达到一个接近零的极小值，于是可以认为流动已经处于稳定状态；当 $Re=45$ 时，随着计算的进行，误差早早达到一个稳定波动的状态，但不会接近零，所以此时流动处于非稳态。由此可知临界雷诺数大于 40 而小于 45，与通过升力得到的结果一致。
@@ -85,7 +98,7 @@
 		\centering
 		\subfigure[$Re=45$]{\includegraphics[width=0.8\textwidth]{../figs/0.0001_45/resd}}
 	\end{minipage}
-	\caption{不同雷诺数下误差随时间的变化（$Da=0.0001$）}
+	\caption{$Da=0.0001$ 时不同雷诺数下误差随时间的变化}
 	\label{fig: resd}
 \end{figure}
 
@@ -110,7 +123,7 @@
 		$1\times 10^{-5}$ & 40--45 \\
 		$0.0001$ & 40--45 \\
 		$0.001$ & 40--45 \\
-		$0.005$ & ? \\
+		$0.005$ & -- \\
 		$0.01$ & 140--160 \\
 		$0.1$ & >200 \\
 	\bottomrule[1.5pt]
@@ -142,7 +155,7 @@
 		\subfigure[$Re=140$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_140/flow}}
 		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_200/flow}}
 	\end{minipage}
-	\caption{$Da=1\times 10^{-4}$ 时不同雷诺数下涡量的等值线图}
+	\caption{$Da=0.0001$ 时不同雷诺数下涡量的等值线图}
 	\label{fig: vorticity-contour-1e-4}
 \end{figure}
 
@@ -167,7 +180,7 @@
 		\subfigure[$Re=140$]{\includegraphics[width=0.47\textwidth]{../figs/0.001_140/flow}}
 		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../figs/0.001_200/flow}}
 	\end{minipage}
-	\caption{$Da=1\times 10^{-3}$ 时不同雷诺数下涡量的等值线图}
+	\caption{$Da=0.001$ 时不同雷诺数下涡量的等值线图}
 	\label{fig: vorticity-contour-1e-3}
 \end{figure}
 
@@ -192,7 +205,7 @@
 		\subfigure[$Re=140$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_140/flow}}
 		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_200/flow}}
 	\end{minipage}
-	\caption{$Da=5\times 10^{-3}$ 时不同雷诺数下涡量的等值线图（尚无）}
+	\caption{$Da=0.005$ 时不同雷诺数下涡量的等值线图（尚无）}
 	\label{fig: vorticity-contour-5e-3}
 \end{figure}
 
@@ -310,7 +323,7 @@
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{../analysis/St_Re}
-	\caption{Strouhal 数随 $Re$ 的变化}
+	\caption{不同达西数下 Strouhal 数随 $Re$ 的变化}
 	\label{fig: St}
 \end{figure}
 
@@ -360,7 +373,7 @@
 		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../figs/0.0001_45/Cl_t}\includegraphics[width=0.48\textwidth]{../figs/0.0001_45/Cl_t}}
 	\end{minipage}
 	\vspace{0.2em}
-	\caption{升力系数和阻力系数随时间的变化（$Da=0.0001$）}
+	\caption{$Da=0.0001$ 时升力系数和阻力系数随时间的变化}
 	\label{fig: ClCd_t-1e-4}
 \end{figure}
 
