@@ -91,7 +91,7 @@
 \begin{equation}
 	F^t + F^{\mathrm{c}} = F^{\mathrm{d}} + Q_{\mathrm{P}}^{\phi}
 \end{equation}
-下面将对方程中的每一项积分作出近似，近似方法参考 \cite{}。
+下面将对方程中的每一项积分作出近似，近似方法参考书籍 \inlinecite{Ferziger2002}。
 
 （1）对流项的近似
 
@@ -202,12 +202,12 @@
 \end{equation}
 其中“impl”和“expl”分别代表隐式和显式形式的流率近似，“old”表示上次迭代的值。
 
-Muzaferija\cite{} 提出了避免这一问题的有效方法。当连接 P、E 两点的线正交于控制体表面时，对 $n$ 的导数近似等于对 $\xi$ 的导数，$\xi$ 为连线的方向。公式 \eqref{eq: diffusive flux of local coordinate} 由隐式表达式近似：
+Muzaferija\cite{Muzaferija1994} 提出了避免这一问题的有效方法。当连接 P、E 两点的线正交于控制体表面时，对 $n$ 的导数近似等于对 $\xi$ 的导数，$\xi$ 为连线的方向。公式 \eqref{eq: diffusive flux of local coordinate} 由隐式表达式近似：
 \begin{equation}
 	F_{\mathrm{e}}^{\mathrm{d}} = \varGamma_{\mathrm{e}}S_{\mathrm{e}}\left(\frac{\partial\phi}{\partial\xi}\right)_{\mathrm{e}} = 
 	\varGamma_{\mathrm{e}}S_{\mathrm{e}}\frac{\phi_{\mathrm{E}}-\phi_{\mathrm{P}}}{L_{\mathrm{PE}}}
 \end{equation}
-如果 P、E 的连线正交于单元表面，这是一个具有二阶精度的方法，并且延迟校正项必须为零。？当网格是非正交时，延迟校正项必须包括 $\xi$ 和 $n$ 两个方向导数的差值。Muzaferija\cite{} 提出的校正格式为
+如果 P、E 的连线正交于单元表面，这是一个具有二阶精度的方法，并且延迟校正项必须为零。？当网格是非正交时，延迟校正项必须包括 $\xi$ 和 $n$ 两个方向导数的差值。Muzaferija\cite{Muzaferija1994} 提出的校正格式为
 \begin{equation}\label{eq: Muzaferija1994 formula}
 	F_{\mathrm{e}}^{\mathrm{d}} = \varGamma_{\mathrm{e}}S_{\mathrm{e}}\left(\frac{\partial\phi}{\partial\xi}\right)_{\mathrm{e}} +
 	\varGamma_{\mathrm{e}}S_{\mathrm{e}}\left[ 
@@ -296,7 +296,7 @@ Muzaferija\cite{} 提出了避免这一问题的有效方法。当连接 P、E �
 	\frac{\partial}{\partial t}\int_{\varOmega}\rho\phi\diff\varOmega +
 	A_{\mathrm{P}}\phi_{\mathrm{P}} + \sum_l A_l\phi_l = Q_{\mathrm{P}}^* - \left(\frac{\partial p}{\partial x}\right) \Delta\varOmega
 \end{equation}
-上式以各个节点的 $\phi$ 为未知量，通过求解代数方程组得到，压力项通过 SIMPLEC 算法求解？\cite{}
+上式以各个节点的 $\phi$ 为未知量，通过求解代数方程组得到，压力项通过 SIMPLEC 算法求解 \cite{Van1984}？
 \begin{equation}\label{eq: Simplec}
 	u_{\mathrm{e}}^{\mathrm{m}} = \overline{(u^m)}_{\mathrm{e}} - \Delta\varOmega \overline{\left(\frac{1}{A_{\mathrm{P}}^u+\sum_lA_l^u}\right)}_{\mathrm{e}} \left[\left(\frac{\partial p}{\partial x}\right)_{\mathrm{e}}-\overline{\left(\frac{\partial p}{\partial x}\right)}_{\mathrm{e}}\right]^{m-1}
 \end{equation}
@@ -413,7 +413,7 @@ Forchheimer 项的积分近似如下
 
 计算完成后，得到了整个区域的流场特性，即速度、压力以及圆柱受到的阻力和升力系数。根据某一物理量随时间变化的曲线可以得到无量纲频率 Strouhal 数。阻力和升力都随时间做周期性波动，对阻力取出一个周期内的平均值进行比较，对升力则读取波动的振幅进行比较。Strouhal 数、平均阻力、升力振幅的比较见图~\ref{fig: validation-St}、图~\ref{fig: validation-Cd}和图~\ref{fig: validation-Cl}。
 
-以下三幅图展示了多孔介质趋于固体时的流动特性。图~\ref{fig: validation-St}显示了 Strouhal 数随雷诺数的变化，从图中可以看出，在雷诺数从 40 增大到 180 的范围内，当前结果与文献 \cite{} 符合得比较好，$Re=180$ 和 $Re=200$ 两个点和文献不一致，可能是因为这时流动已具有三维特性，所以模拟的结果有一定偏差。
+以下三幅图展示了多孔介质趋于固体时的流动特性。图~\ref{fig: validation-St}显示了 Strouhal 数随雷诺数的变化，从图中可以看出，在雷诺数从 40 增大到 180 的范围内，当前结果与文献 \inlinecite{Williamson1996} 符合得比较好，$Re=180$ 和 $Re=200$ 两个点和文献不一致，可能是因为这时流动已具有三维特性，所以模拟的结果有一定偏差。
 
 \begin{figure}
 	\centering
@@ -422,7 +422,7 @@ Forchheimer 项的积分近似如下
 	\label{fig: validation-St}
 \end{figure}
 
-图~\ref{fig: validation-Cd}显示了平均阻力随雷诺数的变化，随着雷诺数的增大，平均阻力逐渐减小，且雷诺数在开始阶段减小很快，之后减小的速度慢慢变小，两条曲线都具有这一趋势，但有一定的差距，而且文献中的数据在 $Re=60$ 之前下降很快，随后却由一个明显的上升，然后才缓慢下降，这导致曲线在 $Re=60$ 附近不连续，原因尚不明确，可能这是由两段数据组合而成的一个直线。此外，当前研究和文献数据在阻力值上的差距也不明确，只是总体上具有相同的变化趋势。如果在程序中不考虑达西数，而不是将达西数设为一个很小的值，那么得到的结果会更接近文献数据。所以，这一差距可能由达西数的加入而引起。
+图~\ref{fig: validation-Cd}显示了平均阻力随雷诺数的变化，随着雷诺数的增大，平均阻力逐渐减小，且雷诺数在开始阶段减小很快，之后减小的速度慢慢变小，两条曲线都具有这一趋势，但有一定的差距，与文献 \inlinecite{Rajani2009} 而且文献中的数据在 $Re=60$ 之前下降很快，随后却由一个明显的上升，然后才缓慢下降，这导致曲线在 $Re=60$ 附近不连续，原因尚不明确，可能这是由两段数据组合而成的一个直线。此外，当前研究和文献数据在阻力值上的差距也不明确，只是总体上具有相同的变化趋势。如果在程序中不考虑达西数，而不是将达西数设为一个很小的值，那么得到的结果会更接近文献数据。所以，这一差距可能由达西数的加入而引起。
 
 \begin{figure}[ht]
 	\centering
