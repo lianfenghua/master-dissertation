@@ -2,9 +2,9 @@
 % !TEX root = ../main.tex
 \chapter{从稳态流动到非稳态流动}\label{chap: transform}
 
-\section{判断方法}\label{sec: judgement}
-
 在稳定流动状态（L2），流动在圆柱背面分离，形成了上下对称的一对漩涡，随着雷诺数的增加，圆柱背面尾迹的长度随之增加，分离点的角度则逐渐减小（从更靠前的位置开始分离）。这些量的变化情况可以参考文献 \inlinecite{Rajani2009,Qu2013}。Waqas Sarwar Abbasi\cite{Abbasi2018} 研究了多孔方柱绕流时流动从稳态向非稳态的转变，并分析了雷诺数的影响。
+
+\section{判断方法}\label{sec: judgement}
 
 固定达西数，当雷诺数较小时，流动处于稳态；随着雷诺数的增加，流动逐渐转变为非稳态，尾迹出现振荡，然后上下两个漩涡从圆柱表面交替脱落，各变量随时间做周期性变化。对于每个达西数，都存在一个临界雷诺数，该雷诺数标志着流动状态的转变。为了知晓某一达西数所对应的临界雷诺数，从已有数据计算出不同雷诺数下某一物理量随时间的变化图，通过观察物理量是否随时间波动，从而判断流动是否处于非稳态。由于计算具有一定误差，所以稳态时物理量也会随时间有微小的波动，实际当波动小于某一特定精度时就任务流动处于稳态，波动大于此精度则认为流动处于非稳态。下面将通过升力系数随时间的变化图（$C_L$-$t$）来判断流动状态。
 
@@ -15,8 +15,21 @@
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=40$]{\includegraphics[width=0.48\textwidth]{../figs/0.0001_40/Cl_t}}
-		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../figs/0.0001_45/Cl_t}}
+		\subfigure[$Re=43$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{1e-05_43}.pdf}}
+		\subfigure[$Re=44$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{1e-05_44}.pdf}}
+	\end{minipage}
+	\vspace{0.2em}
+	\caption{$Da=1\times 10^{-5}$ 时不同雷诺数下升力系数随时间的变化}
+	\label{fig: Cl_t-1e-5}
+\end{figure}
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=44$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{0.0001_44}.pdf}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{0.0001_45}.pdf}}
 	\end{minipage}
 	\vspace{0.2em}
 	\caption{$Da=0.0001$ 时不同雷诺数下升力系数随时间的变化}
@@ -28,8 +41,21 @@
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=40$]{\includegraphics[width=0.48\textwidth]{../figs/0.001_40/Cl_t}}
-		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../figs/0.001_45/Cl_t}}
+		\subfigure[$Re=44$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{0.0005_44}.pdf}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{0.0005_45}.pdf}}
+	\end{minipage}
+	\vspace{0.2em}
+	\caption{$Da=0.0005$ 时不同雷诺数下升力系数随时间的变化}
+	\label{fig: Cl_t-5e-4}
+\end{figure}
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=44$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{0.001_44}.pdf}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{0.001_45}.pdf}}
 	\end{minipage}
 	\vspace{0.2em}
 	\caption{$Da=0.001$ 时不同雷诺数下升力系数随时间的变化}
@@ -41,11 +67,24 @@
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=40$]{\includegraphics[width=0.48\textwidth]{../figs/0.001_40/Cl_t}}
-		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../figs/0.001_45/Cl_t}}
+		\subfigure[$Re=60$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{0.005_60}.pdf}}
+		\subfigure[$Re=70$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{0.005_70}.pdf}}
 	\end{minipage}
 	\vspace{0.2em}
-	\caption{$Da=0.01$ 时不同雷诺数下升力系数随时间的变化（尚无）}
+	\caption{$Da=0.005$ 时不同雷诺数下升力系数随时间的变化}
+	\label{fig: Cl_t-5e-3}
+\end{figure}
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=160$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{0.01_160}.pdf}}
+		\subfigure[$Re=180$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/{0.01_180}.pdf}}
+	\end{minipage}
+	\vspace{0.2em}
+	\caption{$Da=0.01$ 时不同雷诺数下升力系数随时间的变化}
 	\label{fig: Cl_t-1e-2}
 \end{figure}
 
@@ -75,6 +114,8 @@
 	\label{fig: error}
 \end{figure}
 
+\section{达西数的影响}\label{sec: Da}
+
 同理，对 $Da=1\times 10^{-5},\,0.0005\,0.001,\,0.005,\,0.01$，也可以得到相应的临界雷诺数。最终得到的临界雷诺数见表~\ref{tab: critical Re}。从表中可以看到，达西数越大，临界雷诺数也越大，当达西数小于 $10^{-3}$ 时，临界雷诺数小于 45，当达西数达到 $10^{-2}$ 时，临界雷诺数已在 150 附近，当达西数等于 0.1 时，雷诺数 200 以下已经完全处于稳态，由于 雷诺数 200 以上具有一定的三维效应，所以不再计算。达西数为无量纲的渗透率，不同达西数下临界雷诺数具有不同的数值，这反映了达西数对流动的影响。当达西数很小时，多孔区几乎为固态，只有极少量的流体可以穿过圆柱，此时，临界雷诺数等于固体圆柱绕流的值。随着达西数的增大，多孔介质的影响体现出来，流体可以从圆柱内部穿过，一定程度上减弱了原来的不稳定。达西数很大时，多孔介质接近消失，相当于整个区域都是纯流体的流动，没有了圆柱内部的渗流以及多孔介质的阻碍，流动更接近稳态，需要更大的雷诺数才能由稳态转变为非稳态。
 
 \begin{table}[h]
@@ -84,17 +125,16 @@
 		\toprule[1.5pt]
 		$Da$ & 临界 $Re$ \\
 		\midrule[1pt]
-		$1\times 10^{-5}$ & 40--45 \\
-		$0.0001$ & 40--45 \\
-		$0.001$ & 40--45 \\
-		$0.005$ & -- \\
-		$0.01$ & 140--160 \\
-		$0.1$ & >200 \\
+		$0.00001$ & 44 \\
+		$0.0001$ & 45 \\
+		$0.0005$ & 45 \\
+		$0.001$  & 45 \\
+		$0.005$  & 70 \\
+		$0.01$   & 180 \\
+		$0.1$    & >200 \\
 	\bottomrule[1.5pt]
 	\end{tabular}
 \end{table}
-
-\section{达西数的影响}\label{sec: Da}
 
 \section{本章小结}
 

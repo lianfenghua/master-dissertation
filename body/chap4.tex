@@ -4,7 +4,7 @@
 
 \section{瞬态行为}\label{sec: transient}
 
-流动由雷诺数、达西数、孔隙率等多个参数决定，当前的研究中主要通过改变雷诺数和达西数得到不同的流动，并探究参数对流动的影响。非稳态流动的雷诺数范围大约为从 40 到 200， $Da=1\times 10^{-5}$ 时多孔区域接近固体，$Da=1\times 10^{-2}$ 时多孔内的流动已经非常微弱，所以当前计算时设置的雷诺数从区间 $[40,200]$ 内选择，达西数从区间 $[10^{-5},10^{-2}]$ 内选择，表~\ref{tab: DaRe} 列出了达西数和雷诺数可能的组合值，实际计算过的值用对勾（$\surd$）标记。本文未改变孔隙率和应力阶跃参数的值，依承文献 \inlinecite{Yu2007} 的设定，将孔隙率设为 0.7，将应力阶跃的两个系数均设为零：$\varepsilon=0.7$，$\beta_1 = \beta_2=0$。
+流动由雷诺数、达西数、孔隙率等多个参数决定，当前的研究中主要通过改变雷诺数和达西数得到不同的流动，并探究参数对流动的影响。非稳态流动的雷诺数范围大约为从 40 到 200， $Da=1\times 10^{-5}$ 时多孔区域接近固体，$Da=1\times 10^{-2}$ 时多孔介质的效果已经非常微弱，所以当前计算时设置的雷诺数从区间 $[40,200]$ 内选择，达西数从区间 $[10^{-5},10^{-2}]$ 内选择，表~\ref{tab: DaRe} 列出了达西数和雷诺数可能的组合值，实际计算过的值用对勾（$\surd$）标记。本文未改变孔隙率和应力阶跃参数的值，依承文献 \inlinecite{Yu2007} 的设定，将孔隙率设为 0.7，将应力阶跃的两个系数均设为零：$\varepsilon=0.7$，$\beta_1 = \beta_2=0$。
 
 \begin{table}
 	\caption{计算时用到的达西数和雷诺数的值的设置}\label{tab: DaRe}
@@ -15,23 +15,23 @@
 		\cmidrule[.67pt](lr){2-7}
 		& 0.00001 & 0.0001 & 0.0005 & 0.001 & 0.005 & 0.01 \\
 		\midrule[1pt]
-		40  & ${\color{red}\surd}$ & ${\color{red}\surd}$ &         & ${\color{red}\surd}$ & $\surd$ \\
-		41  & $\surd$              & ${\color{red}\surd}$ &         & ${\color{red}\surd}$ &   \\
-		42  & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ &   \\
-		43  & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ &   \\
-		44  & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ &   \\
-		45  & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ &   \\
-		50  & ${\color{red}\surd}$ & ${\color{red}\surd}$ &         & ${\color{red}\surd}$ & $\surd$ \\
-		60  & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ & $\surd$ \\
-		70  & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ & $\surd$ \\
-		80  & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ & $\surd$ \\
-		90  & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ & $\surd$ \\
-		100 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ & $\surd$ \\
-		120 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ & $\surd$ \\
-		140 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ & $\surd$ \\
-		160 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ & $\surd$ \\
-		180 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ & $\surd$ \\
-		200 & ${\color{red}\surd}$ & ${\color{red}\surd}$ & $\surd$ & ${\color{red}\surd}$ & $\surd$ \\
+		40  & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & -- \\
+		41  & --      & $\surd$ & $\surd$ & $\surd$ & $\surd$ & -- \\
+		42  & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & -- \\
+		43  & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & -- \\
+		44  & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & -- \\
+		45  & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & -- \\
+		50  & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & -- \\
+		60  & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+		70  & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+		80  & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+		90  & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+		100 & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+		120 & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+		140 & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+		160 & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+		180 & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
+		200 & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ & $\surd$ \\
 		\bottomrule[1.5pt]
 	\end{tabular}
 \end{table}
