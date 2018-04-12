@@ -6,7 +6,16 @@
 
 \subsection{控制方程} % homogenous fluid region, and porous region
 
-多孔圆柱绕流问题中的流动可以分为两部分：圆柱外为纯流体区域，圆柱内为多孔介质区域。在纯流体区域，不可压缩流动的质量守恒方程、动量守恒方程的微分形式分别为
+多孔圆柱绕流问题中的流动可以分为两部分：圆柱外为纯流体区域，圆柱内为多孔介质区域。流动示意图如图~\ref{fig: cylinder} 所示。
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=.7]{figs/cylinder}
+	\caption{流动示意图}\label{fig: cylinder}
+\end{figure}
+
+在纯流体区域，不可压缩流动的质量守恒方程、动量守恒方程的微分形式分别为
+
 \begin{gather}
 	\nabla \cdot \bm{u} = 0 \\
 	\frac{\partial(\rho\bm{u})}{\partial t} + \nabla \cdot (\rho\bm{u}\bm{u}) = -\nabla p + \mu\nabla^2\bm{u}
@@ -95,7 +104,14 @@
 
 （1）对流项的近似
 
-图~ 是一个典型的二维控制体，将节点定义在每个控制体的中心位置。下面将以东边（east）为例。
+图~\ref{fig: CV} 是一个典型的二维控制体，将节点定义在每个控制体的中心位置。下面将以东边（east）表面为例。
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=.6]{figs/CV}
+	\caption{一个典型的二维控制体示意图及采用的符号，图片摘自文献\inlinecite{Ferziger2002}第 231 页}
+	\label{fig: CV}
+\end{figure}
 
 质量流量为
 \begin{equation}
@@ -180,7 +196,7 @@
 \begin{equation}\label{eq: diffusive flux of local coordinate}
 	F_{\mathrm{e}}^{\mathrm{d}} = \varGamma_{\mathrm{e}}\left(\frac{\partial\phi}{\partial n}\right)_{\mathrm{e}}S_{\mathrm{e}}
 \end{equation}
-使用中心差分，法向导数可以近似为？
+使用中心差分，法向导数可以近似为%？
 \begin{equation}
 	\left(\frac{\partial\phi}{\partial n}\right)_{\mathrm{e}} \approx
 	\frac{\phi_{\mathrm{E}}-\phi_{\mathrm{P}}}{L_{\mathrm{PE}}}
@@ -195,19 +211,26 @@
 	\frac12\frac{\phi_{\mathrm{EE}}-\phi_{\mathrm{P}}}{2\Delta x}
 \end{equation}
 
-从图~ 可以看出，当存在振荡时，由上式得出的 e 点导数值可能为零，但实际上该点具有较大的导数，振荡对迭代造成了影响。可以通过下面的方法避免：？
+从图~\ref{fig: approximation} 可以看出，当存在振荡时，由上式得出的 e 点导数值可能为零，但实际上该点具有较大的导数，振荡对迭代造成了影响。可以通过下面的方法避免：%？
 \begin{equation}
 	F_{\mathrm{e}}^{\mathrm{d}} = F_{\mathrm{e}}^{\mathrm{d,impl}} +
 	[F_{\mathrm{e}}^{\mathrm{d,expl}} - F_{\mathrm{e}}^{\mathrm{d,impl}}]^{\mathrm{old}}
 \end{equation}
 其中“impl”和“expl”分别代表隐式和显式形式的流率近似，“old”表示上次迭代的值。
 
+\begin{figure}
+	\centering
+	\includegraphics[scale=.8]{figs/approximation}
+	\caption{控制体表面梯度的近似和振荡解的避免，图片摘自文献\inlinecite{Ferziger2002}第 235 页}
+	\label{fig: approximation}
+\end{figure}
+
 Muzaferija\cite{Muzaferija1994} 提出了避免这一问题的有效方法。当连接 P、E 两点的线正交于控制体表面时，对 $n$ 的导数近似等于对 $\xi$ 的导数，$\xi$ 为连线的方向。公式 \eqref{eq: diffusive flux of local coordinate} 由隐式表达式近似：
 \begin{equation}
 	F_{\mathrm{e}}^{\mathrm{d}} = \varGamma_{\mathrm{e}}S_{\mathrm{e}}\left(\frac{\partial\phi}{\partial\xi}\right)_{\mathrm{e}} = 
 	\varGamma_{\mathrm{e}}S_{\mathrm{e}}\frac{\phi_{\mathrm{E}}-\phi_{\mathrm{P}}}{L_{\mathrm{PE}}}
 \end{equation}
-如果 P、E 的连线正交于单元表面，这是一个具有二阶精度的方法，并且延迟校正项必须为零。？当网格是非正交时，延迟校正项必须包括 $\xi$ 和 $n$ 两个方向导数的差值。Muzaferija\cite{Muzaferija1994} 提出的校正格式为
+如果 P、E 的连线正交于单元表面，这是一个具有二阶精度的方法，并且延迟校正项必须为零。当网格是非正交时，延迟校正项必须包括 $\xi$ 和 $n$ 两个方向导数的差值。Muzaferija\cite{Muzaferija1994} 提出的校正格式为%？
 \begin{equation}\label{eq: Muzaferija1994 formula}
 	F_{\mathrm{e}}^{\mathrm{d}} = \varGamma_{\mathrm{e}}S_{\mathrm{e}}\left(\frac{\partial\phi}{\partial\xi}\right)_{\mathrm{e}} +
 	\varGamma_{\mathrm{e}}S_{\mathrm{e}}\left[ 
@@ -228,9 +251,16 @@ Muzaferija\cite{Muzaferija1994} 提出了避免这一问题的有效方法。当
 \end{equation}
 当 $\bm{i}_{\xi}=\bm{n}$ 时，上式退化为正交时的情形。
 
-在以上的方法中，我们假设 P、E 间的连线通过了单元东边表面的中心 e。以上的面积分具有二阶精度。如果网格是不规则的，P、E 连线可能不会经过表面的中心点，前面公式中的 $\phi_{\mathrm{e}}$ 和 $(\partial\phi/\partial\xi)_{\mathrm{e}}$ 等并不是 e 点的值，而是 P、E 连线与表面的交点 $\mathrm{e}'$ 处的值，如图~ 所示。e 和 $\mathrm{e}'$ 之间的差别带来了误差，使得原来的面积分不再具有二阶精度，误差可能会使精度降为一阶。
+在以上的方法中，我们假设 P、E 间的连线通过了单元东边表面的中心 e。以上的面积分具有二阶精度。如果网格是不规则的，P、E 连线可能不会经过表面的中心点，前面公式中的 $\phi_{\mathrm{e}}$ 和 $(\partial\phi/\partial\xi)_{\mathrm{e}}$ 等并不是 e 点的值，而是 P、E 连线与表面的交点 $\mathrm{e}'$ 处的值，如图~\ref{fig: alternative way} 所示。e 和 $\mathrm{e}'$ 之间的差别带来了误差，使得原来的面积分不再具有二阶精度，误差可能会使精度降为一阶。
 
-控制体表面中心处 e 点的值可以通过辅助节点 $\mathrm{P}'$ 和 $\mathrm{E}'$ 得到，$\mathrm{P}'$、$\mathrm{E}'$ 的连线通过 e 点并指向 e 点的法向，$\mathrm{P}'$ 和 $\mathrm{E}'$ 分别位于 P、N 以及 E、NE 的连线上，如图~ 所示。隐式项基于节点 P 和 E 处的值，忽略网格的不规则（即使用 $\mathrm{e}'$ 点的值），对隐式项和更精确的方法之间的差值进行显式处理。于是，公式 \eqref{eq: Muzaferija1994 formula} 被修正为
+\begin{figure}
+	\centering
+	\includegraphics[scale=.8]{figs/alternative-way}
+	\caption{一种计算控制体表面中心处的值及梯度的方法，图片摘自文献\inlinecite{Ferziger2002}第 237 页}
+	\label{fig: alternative way}
+\end{figure}
+
+控制体表面中心处 e 点的值可以通过辅助节点 $\mathrm{P}'$ 和 $\mathrm{E}'$ 得到，$\mathrm{P}'$、$\mathrm{E}'$ 的连线通过 e 点并指向 e 点的法向，$\mathrm{P}'$ 和 $\mathrm{E}'$ 分别位于 P、N 以及 E、NE 的连线上，如图~\ref{fig: alternative way} 所示。隐式项基于节点 P 和 E 处的值，忽略网格的不规则（即使用 $\mathrm{e}'$ 点的值），对隐式项和更精确的方法之间的差值进行显式处理。于是，公式 \eqref{eq: Muzaferija1994 formula} 被修正为
 \begin{equation}
 	F_{\mathrm{e}}^{\mathrm{d}} = \varGamma_{\mathrm{e}}S_{\mathrm{e}}\left(\frac{\partial\phi}{\partial\xi}\right)_{\mathrm{e'}} +
 	\varGamma_{\mathrm{e}}S_{\mathrm{e}}\left[ 
@@ -283,7 +313,7 @@ Muzaferija\cite{Muzaferija1994} 提出了避免这一问题的有效方法。当
 	-\int_{\varOmega} \frac{\partial p}{\partial x} \diff\varOmega \approx 
 	-\left(\frac{\partial p}{\partial x}\right)_{\mathrm{P}} \Delta\varOmega
 \end{equation}
-第一种方法是完全守恒的，如果导数 $\partial p/\partial x$ 是使用高斯定理计算的话，第二种方法也是守恒的：两者通过高斯定理相联系。？如果压力梯度不在直角坐标系下表示，而在位于控制体中心的当地坐标系 $(\xi,\eta)$ 下表示，那么？
+第一种方法是完全守恒的，如果导数 $\partial p/\partial x$ 是使用高斯定理计算的话，第二种方法也是守恒的：两者通过高斯定理相联系。如果压力梯度不在直角坐标系下表示，而在位于控制体中心的当地坐标系 $(\xi,\eta)$ 下表示，那么%？
 \begin{equation}
 	Q_{\mathrm{P}}^p \approx 
 	-(p_{\mathrm{e}}-p_{\mathrm{w}})(y_{\mathrm{n}}-y_{\mathrm{s}}) + 
@@ -291,12 +321,12 @@ Muzaferija\cite{Muzaferija1994} 提出了避免这一问题的有效方法。当
 \end{equation}
 由此得出了动量方程中压力项的近似计算。
 
-通过以上各项的近似，水平方向的(动量?)方程离散之后可以写为
+通过以上各项的近似，水平方向的动量方程离散之后可以写为%动量？
 \begin{equation}
 	\frac{\partial}{\partial t}\int_{\varOmega}\rho\phi\diff\varOmega +
 	A_{\mathrm{P}}\phi_{\mathrm{P}} + \sum_l A_l\phi_l = Q_{\mathrm{P}}^* - \left(\frac{\partial p}{\partial x}\right) \Delta\varOmega
 \end{equation}
-上式以各个节点的 $\phi$ 为未知量，通过求解代数方程组得到，压力项通过 SIMPLEC 算法求解 \cite{Van1984}？
+上式以各个节点的 $\phi$ 为未知量，通过求解代数方程组得到，压力项通过 SIMPLEC 算法求解 \cite{Van1984}%？
 \begin{equation}\label{eq: Simplec}
 	u_{\mathrm{e}}^{\mathrm{m}} = \overline{(u^m)}_{\mathrm{e}} - \Delta\varOmega \overline{\left(\frac{1}{A_{\mathrm{P}}^u+\sum_lA_l^u}\right)}_{\mathrm{e}} \left[\left(\frac{\partial p}{\partial x}\right)_{\mathrm{e}}-\overline{\left(\frac{\partial p}{\partial x}\right)}_{\mathrm{e}}\right]^{m-1}
 \end{equation}

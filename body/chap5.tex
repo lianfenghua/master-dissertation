@@ -4,7 +4,7 @@
 
 非稳态层流流动中的几个重要变量是 Strouhal 数、阻力和升力系数，Strouhal 数体现了流体的非稳态流动所具有的频率，通过阻力和升力系数则可以知晓圆柱受到的阻力和升力，在工程中的一些多孔绕流问题中具有一定的意义。
 
-表~\ref{tab: results-1e-5}展示了达西数 $10^{-4}$--$10^{-2}$、雷诺数 40--200 时二维流动的计算结果，其他参数的设置同 \ref{subsec: grid-independent} 中的表~\ref{tab: parameters} 保持一致。
+表~\ref{tab: results-1e-5} 展示了达西数 $10^{-4}$--$10^{-2}$、雷诺数 40--200 时二维流动的计算结果，其他参数的设置同 \ref{subsec: grid-independent} 中的表~\ref{tab: parameters} 保持一致。
 
 \begin{table}[ht]
 	\caption{不同雷诺数下的计算结果（$Da=1\times 10^{-5}$）}\label{tab: results-1e-5}
@@ -77,36 +77,36 @@
 
 \section{阻力}\label{sec: drag}
 
-图~\ref{fig: ClCd_t-1e-4}显示了非稳态层流中在一定的达西数和雷诺数下阻力和升力系数随时间的变化。对于每一个雷诺数和达西数，经过开始的一段时间之后，流动逐渐进入随时间作周期性变化的平稳状态。设定的计算时间普遍为 300 秒。当达西数较小时，进入平稳状态所需的时间也更短有时无法在 300 秒内达到平稳状态。例如，$Da=1\times 10^{-5}$ 时，$40<Re<60$ 在 300 秒内波动的振幅还在变化，未达到平稳状态；$Re=60$ 时可以在 150 秒时稳定下来，此后所需的时间逐渐减少，$Re=100$ 时所需时间为 70 秒。$Da=1\times 10^{-4}$ 时，从 $Re=50$ 开始可以在 300 秒内达到稳定。总体趋势是达到平稳时所需的时间按达西数的增大而减小。
+图~\ref{fig: ClCd_t-1e-4} 显示了非稳态层流中在一定的达西数和雷诺数下阻力和升力系数随时间的变化。对于每一个雷诺数和达西数，经过开始的一段时间之后，流动逐渐进入随时间作周期性变化的平稳状态。设定的计算时间普遍为 300 秒。当达西数较小时，进入平稳状态所需的时间也更短。有时无法在 300 秒内达到平稳状态。例如，$Da=1\times 10^{-5}$ 时，$40<Re<60$ 在 300 秒内波动的振幅还在变化，未达到平稳状态；$Re=60$ 时可以在 150 秒时稳定下来，此后所需的时间逐渐减少，$Re=100$ 时所需时间为 70 秒。$Da=0.0001$ 时，从 $Re=50$ 开始可以在 300 秒内达到稳定。总体趋势是达到平稳时所需的时间按达西数的增大而减小。
 
 \begin{figure}
 	\setlength{\subfigcapskip}{-1bp}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=40$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_40/Cl_t}\includegraphics[width=0.47\textwidth]{../figs/0.0001_40/Cl_t}}
+		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../analysis/Cl/old/{0.0001_50}.pdf}\includegraphics[width=0.47\textwidth]{../analysis/Cd/old/{0.0001_50}.pdf}}
 	\end{minipage}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=45$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_45/Cl_t}\includegraphics[width=0.47\textwidth]{../figs/0.0001_45/Cl_t}}
+		\subfigure[$Re=70$]{\includegraphics[width=0.47\textwidth]{../analysis/Cl/old/{0.0001_70}.pdf}\includegraphics[width=0.47\textwidth]{../analysis/Cd/old/{0.0001_70}.pdf}}
 	\end{minipage}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../figs/0.0001_45/Cl_t}\includegraphics[width=0.48\textwidth]{../figs/0.0001_45/Cl_t}}
+		\subfigure[$Re=100$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/old/{0.0001_100}.pdf}\includegraphics[width=0.48\textwidth]{../analysis/Cd/old/{0.0001_100}.pdf}}
 	\end{minipage}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=45$]{\includegraphics[width=0.48\textwidth]{../figs/0.0001_45/Cl_t}\includegraphics[width=0.48\textwidth]{../figs/0.0001_45/Cl_t}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.48\textwidth]{../analysis/Cl/old/{0.0001_200}.pdf}\includegraphics[width=0.48\textwidth]{../analysis/Cd/old/{0.0001_200}.pdf}}
 	\end{minipage}
 	\vspace{0.2em}
 	\caption{$Da=0.0001$ 时升力系数和阻力系数随时间的变化}
 	\label{fig: ClCd_t-1e-4}
 \end{figure}
 
-非稳态情形下阻力和升力都随时间做周期性变化，所以此处取一个周期内的平均阻力和升力。平均阻力系数随雷诺数的变化如图~\ref{fig: meanCd} 所示。当 $Da=1\times 10^{-5}$ 时，阻力系数先随雷诺数的增大而减小，在大约 $Re=120$ 时达到最小值，之后 $Re=120$--$200$ 的范围内，阻力系数随着雷诺数的增加而缓慢地增大，比之前减小时的速率小了很多。当 $Da=0.0001$ 时，从 $Re=45$ 开始，阻力系数下降得较快，与 $Da=1\times 10^{-4}$ 的下降速率相当，当 $Re=90$ 时，阻力系数达到了极小值，此时阻力系数的值比 $Re=45$ 降低了 4.74\%，随后在 $Re=90$--$200$ 的范围内，阻力系数不断增大，增速比 $Da=1\times 10^{-5}$ 的情形快许多，并且最终超过了 $Re=45$ 时的值。当 $Da=0.001$ 时，阻力系数的变化有所不同。在 $Re=60$ 之前，阻力系数随着雷诺数的增大而减小，在 $Re=60$ 之后，阻力系数突然开始增大，并于 $Re=140$ 时达到了最大值，相比 $Re=60$ 时增大了 3.23\%，随后才逐渐下降。所以，在该达西数下，阻力再 $Re=60$--$200$ 区间内的变化趋势和其他情形完全相反，可能是多孔介质渗流增大所导致的（？）。
+非稳态情形下阻力和升力都随时间做周期性变化，所以此处取一个周期内的平均阻力和升力。平均阻力系数随雷诺数的变化如图~\ref{fig: meanCd} 所示。当 $Da=1\times 10^{-5}$ 时，阻力系数先随雷诺数的增大而减小，在大约 $Re=120$ 时达到最小值，之后 $Re=120$--$200$ 的范围内，阻力系数随着雷诺数的增加而缓慢地增大，比之前减小时的速率小了很多。当 $Da=0.0001$ 时，从 $Re=45$ 开始，阻力系数下降得较快，与 $Da=1\times 10^{-4}$ 的下降速率相当，当 $Re=90$ 时，阻力系数达到了极小值，此时阻力系数的值比 $Re=45$ 降低了 4.74\%，随后在 $Re=90$--$200$ 的范围内，阻力系数不断增大，增速比 $Da=1\times 10^{-5}$ 的情形快许多，并且最终超过了 $Re=45$ 时的值。当 $Da=0.001$ 时，阻力系数的变化有所不同。在 $Re=60$ 之前，阻力系数随着雷诺数的增大而减小，在 $Re=60$ 之后，阻力系数突然开始增大，并于 $Re=140$ 时达到了最大值，相比 $Re=60$ 时增大了 3.23\%，随后才逐渐下降。所以，在该达西数下，阻力再 $Re=60$--$200$ 区间内的变化趋势和其他情形完全相反，可能是多孔介质渗流增大所导致的。%？
 
 观察同一雷诺数下不同达西数对应的阻力系数，可以得知多孔介质的存在对流体流动的影响。在 $Re=45$--$200$ 范围内，固定雷诺数，达西数越大则阻力系数越大。$Re=45$ 时，$Da=1\times 10^{-5},\,0.0001,\,0.001$ 的阻力系数之比为 $1:1.013:1.034$，此时雷诺数很小，多孔介质的影响并不明显。随着雷诺数的增大，这一差距也逐渐拉大，$Re=120$ 时，三者之比达到了 $1:1.05:1.15$，$Re=200$ 时的比例为 $1:1.10:1.11$，由于 $Da=0.0001$ 和 0.001 变化趋势相反，所以二者逐渐接近。L.-C. Hsu\cite{Hsu2016} 利用其他模拟方法研究了二维圆柱绕流，得到了各个参数的变化情况。%？
 
@@ -121,9 +121,9 @@
 \begin{equation}
 	C_D = C_{Dp} + C_{Df}
 \end{equation}
-图~\ref{fig: meanCdpf} 反映了不同达西数下压差阻力和摩擦阻力随雷诺数的变化。当流体在物体背面形成尾迹时，流体的能量不断耗散在尾迹的漩涡中，使得物体背面的压强较低，物体前后产生压强差，形成了压差阻力。尾迹区域越大则耗散越强，压差阻力也就越大。对于流线型物体，流体几乎顺着物体的表面流动，在物体末端才出现分离现象，所以它的阻力主要来源于摩擦阻力。钝体受到的压差阻力则相对较大，流体分离点的位置越靠前，尾迹区越大，压差阻力也越大。对于圆柱绕流，从图中可以看出，在 $Re=45$--$200$ 区间内，压差阻力显著大于摩擦阻力，说明阻力主要由流动的尾迹造成。随着雷诺数的增大，$Da=1\times 10^{-5}$ 下压差阻力占总阻力的比例从 $Re=45$ 时的 71\% 增加到了 $Re=200$ 时的 85\%；$Da=0.0001$ 下从 $Re=45$ 时的 71\% 增加到了 $Re=200$ 时的 87\%；$Da=0.001$ 下更是从 $Re=45$ 时的 76\% 增加到了 $Re=200$ 时的 92\%。随着雷诺数的增大，分离点向上游移动（见图~），尾迹区扩大，压差阻力增大，与图~\ref{fig: meanCdpf} 中 $C_{Dp}$ 的变化一致。摩擦阻力则随着雷诺数的增大而减小（？）。
+图~\ref{fig: meanCdpf} 反映了不同达西数下压差阻力和摩擦阻力随雷诺数的变化。当流体在物体背面形成尾迹时，流体的能量不断耗散在尾迹的漩涡中，使得物体背面的压强较低，物体前后产生压强差，形成了压差阻力。尾迹区域越大则耗散越强，压差阻力也就越大。对于流线型物体，流体几乎顺着物体的表面流动，在物体末端才出现分离现象，所以它的阻力主要来源于摩擦阻力。钝体受到的压差阻力则相对较大，流体分离点的位置越靠前，尾迹区越大，压差阻力也越大。对于圆柱绕流，从图中可以看出，在 $Re=45$--$200$ 区间内，压差阻力显著大于摩擦阻力，说明阻力主要由流动的尾迹造成。随着雷诺数的增大，$Da=1\times 10^{-5}$ 下压差阻力占总阻力的比例从 $Re=45$ 时的 71\% 增加到了 $Re=200$ 时的 85\%；$Da=0.0001$ 下从 $Re=45$ 时的 71\% 增加到了 $Re=200$ 时的 87\%；$Da=0.001$ 下更是从 $Re=45$ 时的 76\% 增加到了 $Re=200$ 时的 92\%。随着雷诺数的增大，分离点向上游移动（见图~），尾迹区扩大，压差阻力增大，与图~\ref{fig: meanCdpf} 中 $C_{Dp}$ 的变化一致。摩擦阻力则随着雷诺数的增大而减小。%（？）
 
-对于不同的达西数，多孔圆柱受到的阻力不尽相同。同一雷诺数下，达西数越大，则压差阻力也越大（？）。同一雷诺数下，达西数越大，摩擦阻力越小（？）。
+对于不同的达西数，多孔圆柱受到的阻力不尽相同。同一雷诺数下，达西数越大，则压差阻力也越大。同一雷诺数下，达西数越大，摩擦阻力越小。%（？）
 
 \begin{figure}
 	\centering
@@ -175,15 +175,16 @@ $C_{L'}$ 为 $C_L$ 的方均根：
 
 对于非稳态流动，流动波动的频率是一个重要参数，在工程中具有重要价值。作为表述流体波动的无量纲频率，Strouhal 数是流动振荡不稳定性的度量：
 \begin{equation}\label{eq: St}
-	St = \frac{Df}{U} = f = \frac{1}{T}
+	St = \frac{Df}{U}
 \end{equation}
 \begin{tabularx}{\textwidth}{@{}l@{\quad}r@{——}X@{}}
 	式中 & $St$ & Strouhal 数；\\
-		& $D$ & 圆柱的直径，$=1$ m；\\
+		& $D$ & 圆柱的直径；\\
 		& $f$ & 波动的频率；\\
-		& $U$ & 远方的来流速度，$=1$ m/s；\\
+		& $U$ & 远方的来流速度；\\
 		& $T$ & 波动的周期。 
 \end{tabularx}\vspace{3.15bp}
+由于计算时设定 $D=1\,\mathrm{m}$，$U=1\,\mathrm{m/s}$，于是 $St=f=1/T$，
 频率与周期互为倒数，周期可以根据某一物理量（例如 Point 3 的水平速度）随时间的变化曲线而得到。继而根据方程 \eqref{eq: St} 可以得到 Strouhal 数。%得到的周期和 Strouhal 数记录在 \texttt{record.xlsx} 中。
 
 图~\ref{fig: St} 显示了 Strouhal 数随着雷诺数和达西数的变化。从图中可以看出，$Da$ 固定时，$St$ 随 $Re$ 的增大而增大，且增长得越来越缓慢。在指定圆柱大小和流体种类的前提下，雷诺数由来流速度决定，来流速度越大，流体在圆柱背面形成的漩涡产生及脱落的频率也越大，符合直观的猜想。固定 $Re$ 时，$Da$ 越小，则 $St$ 越接近固体圆柱绕流的情形，随着达西数趋于零，得到的一系列曲线也将趋于某一条极限曲线，即为固体情形下的曲线。当 $Da=1 \times 10^{-5}$ 时，$St$ 曲线已经和固体圆柱绕流的变化曲线相吻合，\ref{sec: result validation} 节中的图~\ref{fig: validation-St} 已作出了验证。
@@ -214,7 +215,7 @@ $C_{L'}$ 为 $C_L$ 的方均根：
 	\label{fig: 4*vortex}
 \end{figure}
 
-对随时间变化的物理量做傅里叶分析，可以得到离散频率的频谱。已知某个样本点的速度、圆柱的阻力和升力系数随时间变化的数据，对这些物理量做快速傅里叶变换，可以得到这些量在频域中的分布。频域的横坐标是频率，也是 Strouhal 数，某些频率上有峰值出现，表示此处能量密度很高，能量集中在这个频率附近。傅里叶变换之后可能由多个频率分量，类似谐波（？），形成若干离散的峰值，这些峰值按一定的间距分布，大小不一。
+对随时间变化的物理量做傅里叶分析，可以得到离散频率的频谱。已知某个样本点的速度、圆柱的阻力和升力系数随时间变化的数据，对这些物理量做快速傅里叶变换，可以得到这些量在频域中的分布。频域的横坐标是频率，也是 Strouhal 数，某些频率上有峰值出现，表示此处能量密度很高，能量集中在这个频率附近。傅里叶变换之后可能由多个频率分量，类似谐波，形成若干离散的峰值，这些峰值按一定的间距分布，大小不一。%（？）
 
 水平速度随时间的变化以及相应的 Fourier 变换如图~\ref{fig: U Fourier-1e-4} 和~\ref{fig: U Fourier-1e-3} 所示，竖直速度随时间的变化以及相应的 Fourier 变换如图~\ref{fig: V Fourier-1e-4} 和~\ref{fig: V Fourier-1e-3} 所示，图中画出了稳定时的 10 个周期。
 
@@ -222,154 +223,195 @@ $C_{L'}$ 为 $C_L$ 的方均根：
 
 图~\ref{fig: Cl Fourier-1e-4} 和~\ref{fig: Cl Fourier-1e-3} 显示了固定达西数时不同雷诺数下升力系数随时间的变化，以及经过 Fourier 变换后所得的频谱图。主频率对应的单个的尖峰表明尾迹中出现了剧烈的涡脱落。当 $Da=0.0001$ 时达西数很小，多孔介质接近固体，频谱图中会有一个占优势地位的明显的峰值，和固体的情形相匹配。随着达西数的增加，频谱图中主频所对应的峰值振幅逐渐降低，表明多孔介质的渗透性越高，尾迹中涡脱落的强度就越弱。而当达西数继续提高时，主频的峰值将越来越不明显，直到在整个频率范围内都没有明显的突出。
 
+% \begin{figure}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_50/psd_U}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_90/psd_U}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_140/psd_U}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_200/psd_U}}
+% 	\end{minipage}
+% 	\caption{坐标 (3,0) 处 $Da=0.0001$ 时不同雷诺数下水平速度 $U$ 的 Fourier 变换}
+% 	\label{fig: U Fourier-1e-4}
+% \end{figure}
+
+% \begin{figure}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_50/psd_U}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_90/psd_U}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_140/psd_U}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_200/psd_U}}
+% 	\end{minipage}
+% 	\caption{坐标 (3,0) 处 $Da=0.001$ 时不同雷诺数下水平速度 $U$ 的 Fourier 变换}
+% 	\label{fig: U Fourier-1e-3}
+% \end{figure}
+
+% \begin{figure}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_50/psd_V}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_90/psd_V}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_140/psd_V}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_200/psd_V}}
+% 	\end{minipage}
+% 	\caption{坐标 (3,0) 处 $Da=0.0001$ 时不同雷诺数下竖直速度 $V$ 的 Fourier 变换}
+% 	\label{fig: V Fourier-1e-4}
+% \end{figure}
+
+% \begin{figure}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_50/psd_V}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_90/psd_V}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_140/psd_V}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_200/psd_V}}
+% 	\end{minipage}
+% 	\caption{坐标 (3,0) 处 $Da=0.001$ 时不同雷诺数下竖直速度 $V$ 的 Fourier 变换}
+% 	\label{fig: V Fourier-1e-3}
+% \end{figure}
+
+% \begin{figure}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_50/psd_Cl}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_90/psd_Cl}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_140/psd_Cl}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_200/psd_Cl}}
+% 	\end{minipage}
+% 	\caption{$Da=0.0001$ 时不同雷诺数下升力系数的 Fourier 变换}
+% 	\label{fig: Cl Fourier-1e-4}
+% \end{figure}
+
+% \begin{figure}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_50/psd_Cl}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_90/psd_Cl}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_140/psd_Cl}}
+% 	\end{minipage}
+% 	\centering
+% 	\begin{minipage}{\textwidth}
+% 		\centering
+% 		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_200/psd_Cl}}
+% 	\end{minipage}
+% 	\caption{$Da=0.001$ 时不同雷诺数下升力系数的 Fourier 变换}
+% 	\label{fig: Cl Fourier-1e-3}
+% \end{figure}
+
 \begin{figure}
 	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_50/psd_U}}
-	\end{minipage}
+	\includegraphics[width=\textwidth]{../analysis/psd/Cl}
+	\caption{不同达西数和雷诺数下升力系数 $C_L$ 的频谱图}
+	\label{fig: spectrum-Cl}
+\end{figure}
+
+\begin{figure}
 	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_90/psd_U}}
-	\end{minipage}
+	\includegraphics[width=\textwidth]{../analysis/psd/Cl}
+	\caption{不同达西数和雷诺数下 (3,0) 点水平速度 $U$ 的频谱图}
+	\label{fig: spectrum-U}
+\end{figure}
+
+\begin{figure}
 	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_140/psd_U}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_200/psd_U}}
-	\end{minipage}
-	\caption{坐标 (3,0) 处 $Da=0.0001$ 时不同雷诺数下水平速度 $U$ 的 Fourier 变换}
-	\label{fig: U Fourier-1e-4}
+	\includegraphics[width=\textwidth]{../analysis/psd/Cl}
+	\caption{不同达西数和雷诺数下 (3,0) 点垂直速度 $V$ 的频谱图}
+	\label{fig: spectrum-V}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_50/psd_U}}
+		\subfigure[坐标 (3,0) 处的水平速度 $U$]{\includegraphics[width=.9\textwidth]{../analysis/psd/{0.0001_100_U}.pdf}}
 	\end{minipage}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_90/psd_U}}
+		\subfigure[坐标 (3,0) 处的垂直速度 $V$]{\includegraphics[width=.9\textwidth]{../analysis/psd/{0.0001_100_V}.pdf}}
 	\end{minipage}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_140/psd_U}}
+		\subfigure[升力系数 $C_L$]{\includegraphics[width=.9\textwidth]{../analysis/psd/{0.0001_100_Cl}.pdf}}
 	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_200/psd_U}}
-	\end{minipage}
-	\caption{坐标 (3,0) 处 $Da=0.001$ 时不同雷诺数下水平速度 $U$ 的 Fourier 变换}
-	\label{fig: U Fourier-1e-3}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_50/psd_V}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_90/psd_V}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_140/psd_V}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_200/psd_V}}
-	\end{minipage}
-	\caption{坐标 (3,0) 处 $Da=0.0001$ 时不同雷诺数下竖直速度 $V$ 的 Fourier 变换}
-	\label{fig: V Fourier-1e-4}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_50/psd_V}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_90/psd_V}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_140/psd_V}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_200/psd_V}}
-	\end{minipage}
-	\caption{坐标 (3,0) 处 $Da=0.001$ 时不同雷诺数下竖直速度 $V$ 的 Fourier 变换}
-	\label{fig: V Fourier-1e-3}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_50/psd_Cl}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_90/psd_Cl}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_140/psd_Cl}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.0001_200/psd_Cl}}
-	\end{minipage}
-	\caption{$Da=0.0001$ 时不同雷诺数下升力系数的 Fourier 变换}
-	\label{fig: Cl Fourier-1e-4}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=50$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_50/psd_Cl}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=90$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_90/psd_Cl}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=140$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_140/psd_Cl}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=200$]{\includegraphics[width=0.6\textwidth]{../figs/0.001_200/psd_Cl}}
-	\end{minipage}
-	\caption{$Da=0.001$ 时不同雷诺数下升力系数的 Fourier 变换}
-	\label{fig: Cl Fourier-1e-3}
+	\caption{同一雷诺数和达西数下不同物理量的时间序列图及能谱图（$Da=0.0001$, $Re=100$）}
+	\label{fig: spectrum-uvcl}
 \end{figure}
 
 \section{本章小结}
