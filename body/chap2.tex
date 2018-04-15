@@ -4,15 +4,15 @@
 
 \section{问题描述}\label{sec: problem description}
 
-\subsection{控制方程} % homogenous fluid region, and porous region
-
-多孔圆柱绕流问题中的流动可以分为两部分：圆柱外为纯流体区域，圆柱内为多孔介质区域。流动示意图如图~\ref{fig: cylinder} 所示。
+假设该问题中的流动为不可压缩粘性流动，流体的性质均为常数，计算区域的几何参数被固定之后，该问题的控制参数为雷诺数 $Re$ 和达西数 $Da$，定义雷诺数时以圆柱直径为特征长度，以均匀来流速度为特征速度。该问题的流动示意图如图~\ref{fig: cylinder} 所示。将计算区域设定为正方形，圆柱置于正方形的中心位置，以圆心为原点建立直角坐标系，$x$、$y$、$z$三个坐标轴分别指向流动方向、垂直流动的方向和圆柱的长度方向。圆柱的直径为 $D$，正方形的边长为 $L$。多孔圆柱绕流问题中的流动由此被分为两部分：圆柱外为纯流体区域，流体的来流速度为 $U_\infty$，密度和动力粘性系数分别为 $\rho$ 和 $\mu$；圆柱内为多孔介质区域，多孔介质的孔隙率为 $\varepsilon$。
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=.7]{figs/cylinder}
-	\caption{流动示意图}\label{fig: cylinder}
+	\includegraphics[scale=.6]{figs/cylinder}
+	\caption{多孔圆柱绕流的问题定义}\label{fig: cylinder}
 \end{figure}
+
+\subsection{控制方程} % homogenous fluid region, and porous region
 
 在纯流体区域，不可压缩流动的质量守恒方程、动量守恒方程的微分形式分别为
 
@@ -33,7 +33,7 @@
 %	\frac{\partial}{\partial t}\int_{\Omega}\rho \diff\Omega = 
 %\end{gather}
 
-考虑多孔介质区域，控制方程采用 Darcy–Brinkman–Forchheimer 扩展模型：
+在多孔介质区域，控制方程采用 Darcy–Brinkman–Forchheimer 扩展模型：
 \begin{gather}
 	\nabla \cdot \bm{u} = 0 \\
 	\frac{\partial(\rho\bm{u})}{\partial t} + 
@@ -49,7 +49,7 @@
 		& $K$ & 渗透率；\\
 		& $C_{\mathrm{F}}$ & Forchheimer 系数。
 \end{tabularx}\vspace{3.15bp}
-当地平均量（local average）和内部平均量（intrinsic average）之间存在 Dupuit–Forchheimer的关系，例如 $p=\varepsilon p^*$，$\bm{u}=\varepsilon \bm{u}^*$。
+在多孔介质中，当地平均量（local average）和内部平均量（intrinsic average）之间存在 Dupuit-Forchheimer关系，例如 $p=\varepsilon p^*$，$\bm{u}=\varepsilon \bm{u}^*$。
 
 \subsection{边界条件} % Including interface between the homogeneous fluid and porous medium regions
 
@@ -390,6 +390,4 @@ Forchheimer 项的积分近似如下
 
 本章描述了多孔介质流动的数值模拟模型，采用控制体积法，使用贴体网格和多块网格。\ref{sec: problem description} 节描述了该问题的数学模型，整个流动区域分为纯流体区域和多孔介质区域两部分，纯流体区域的控制方程为不可压流动的纳维斯托克斯方程，需要求解速度和压强。多孔介质区域的控制方程是对纯流体区域在表征体元上取平均得到的，采用 Darcy–Brinkman–Forchheimer 扩展模型，需要求解当地平均或内部平均意义下的速度和压强。在纯流体区和多孔介质区的边界上，速度和法向应力均相等，对切向应力采用应力阶跃条件，两侧应力差值的大小克以通过两个参数来调节。
 
-%\ref{sec: discretization method} 描述了离散方法。
-
-\ref{sec: model} 节描述了采用控制体积法的求解模型。控制体积法要求对积分形式的守恒方程进行近似，将其化为代数方程。任一守恒量的守恒方程都可以表述为，在一个控制体内，经过一段时间增加的量等于通过控制面流入的量与控制体内生成的量之和，进一步地，时间变化项与对流项之和等于扩散项与源项之和。采用合适的方法对代表对流项、扩散项和源项的面积分或体积分进行近似，并采用 SIMPLEC 算法求解。
+\ref{sec: model} 节描述了采用控制体积法的求解模型。控制体积法要求对积分形式的守恒方程进行近似，将其化为代数方程。任一守恒量的守恒方程都可以表述为，在控制体内，经过一段时间后增加的量等于经控制面流入的量与控制体内生成的量之和，进一步地，时间变化项与对流项之和等于扩散项与源项之和。采用合适的方法对代表对流项、扩散项和源项的面积分或体积分进行近似，并采用 SIMPLEC 算法求解。

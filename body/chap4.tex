@@ -63,7 +63,7 @@
 	\label{fig: vorticity-contour-1e-4}
 \end{figure}
 
-图~\ref{fig: vorticity-contour-1e-3}展示了 $Da=0.001$ 时不同雷诺数下涡量的等值线图。总体的变化情况和 $Da=0.0001$ 时相同，除了在更大的雷诺数下达到非稳态。
+图~\ref{fig: vorticity-contour-1e-3} 展示了 $Da=0.001$ 时不同雷诺数下涡量的等值线图。总体的变化情况和 $Da=0.0001$ 时相同，除了在更大的雷诺数下达到非稳态。
 
 \begin{figure}
 	\centering
@@ -88,44 +88,25 @@
 	\label{fig: vorticity-contour-1e-3}
 \end{figure}
 
-图~\ref{fig: vorticity-contour-5e-3}展示了 $Da=0.005$ 时不同雷诺数下涡量的等值线图。总体的变化情况和 $Da=0.0001$ 时相同，除了在更大的雷诺数下达到非稳态。%（尚无）
-
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=40$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_40/flow}}
-		\subfigure[$Re=45$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_45/flow}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_50/flow}}
-		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_90/flow}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=140$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_140/flow}}
-		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_200/flow}}
-	\end{minipage}
-	\caption{$Da=0.005$ 时不同雷诺数下涡量的等值线图}%（尚无）
-	\label{fig: vorticity-contour-5e-3}
-\end{figure}
-
-图~\ref{fig: vorticity-contour-1e-2}展示了 $Da=0.01$ 时不同雷诺数下涡量的等值线图。从图中可以看出，直到 $Re=200$ 时尾迹才具有并不大的波动，雷诺数更小的时候流动基本处于稳态。
+图~\ref{fig: vorticity-contour-1e-2} 展示了 $Da=0.01$ 时不同雷诺数下涡量的等值线图。从图中可以看出，直到 $Re=200$ 时尾迹才具有并不大的波动，雷诺数更小的时候流动基本处于稳态。
 
 \begin{figure}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
 		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_50/flow}}
-		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_90/flow}}
+		\subfigure[$Re=70$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_70/flow}}
 	\end{minipage}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=140$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_140/flow}}
+		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_90/flow}}
+		\subfigure[$Re=120$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_120/flow}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=160$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_160/flow}}
 		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_200/flow}}
 	\end{minipage}
 	\caption{$Da=0.01$ 时不同雷诺数下涡量的等值线图}
@@ -136,4 +117,4 @@
 
 \section{本章小结}
 
-本章在非稳态层流范围内选取了合适的例子进行计算，设置了合适的参数值，获得输出的数据文件，对数据进行初步处理，得到了一些重要物理量的值，然后对所得结果进行分析。
+本章在非稳态层流范围内选取了合适的例子进行计算，设置了合适的参数值，获得输出的数据文件，对数据进行初步处理，得到远程和进程的涡量云图和速度流线，经过平均化处理，得到平均涡量的等值线和平均速度的流线，继而得到回流区的几何结构和均值压力分布。
