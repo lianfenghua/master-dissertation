@@ -196,25 +196,6 @@ $C_{L'}$ 为 $C_L$ 的方均根：
 	\label{fig: St}
 \end{figure}
 
-对于非稳态流动，得到流动的周期后，可以继续观察流动在一个周期内的变化情况。以 $Da=1\times 10^{-4}$、$Re=100$ 为例，图~\ref{fig: 4*vortex} 显示了一个周期内的涡量等值线图。如图所示，四个时刻的流动是一致的且连续变化而来，$t=0$ 时刻圆柱背面下方有一个涡准备脱落，它的右侧有一个刚刚脱落的涡；四分之一周期过后，$t=1/4\,T$，下方的涡已经快要脱落；$t=2/4\,T$ 时刻的状态和 $t=0$ 时刻相反，上下对称，即圆柱背面的上方有一个准备脱落的涡；再过四分之一周期，$t=3/4\,T$，此时流动的状态又与 $t=1/4\,T$ 时刻对称。之后，随着时间的演进，这一周期内产生的涡从左向右移动，最终耗散在流体中，同时有新的涡不断产生，重复着这一周期内的现象。
-
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$t=0$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_100/T0}}
-		\subfigure[$t=1/4\,T$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_100/T1}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$t=2/4\,T$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_100/T2}}
-		\subfigure[$t=3/4\,T$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_100/T3}}
-	\end{minipage}
-	\caption{在 0，1/4，2/4，和 3/4 周期时涡的脱落图（$Da=1\times 10^{-4}$，$Re=100$）}
-	\label{fig: 4*vortex}
-\end{figure}
-
 对随时间变化的物理量做傅里叶分析，可以得到离散频率的频谱。已知某个样本点的速度、圆柱的阻力和升力系数随时间变化的数据，对这些物理量做快速傅里叶变换，可以得到这些量在频域中的分布。频域的横坐标是频率，也是 Strouhal 数，某些频率上有峰值出现，表示此处能量密度很高，能量集中在这个频率附近。傅里叶变换之后可能由多个频率分量，类似谐波，形成若干离散的峰值，这些峰值按一定的间距分布，大小不一。%（？）
 
 以 $Da=0.0001$、$Re=100$ 为例，水平速度、垂直速度、升力系数随时间的变化以及相应的 Fourier 变换如图~\ref{fig: spectrum-uvcl} 所示，图中画出了稳定时的 10 个周期。其他参数下的图没有列出。

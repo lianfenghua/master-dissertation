@@ -2,8 +2,6 @@
 % !TEX root = ../main.tex
 \chapter{流场结果与分析}\label{chap: flow pattern}
 
-\section{瞬态行为}\label{sec: transient}
-
 流动由雷诺数、达西数、孔隙率等多个参数决定，当前的研究中主要通过改变雷诺数和达西数得到不同的流动，并探究参数对流动的影响。非稳态流动的雷诺数范围大约为从 40 到 200， $Da=1\times 10^{-5}$ 时多孔区域接近固体，$Da=1\times 10^{-2}$ 时多孔介质的效果已经非常微弱，所以当前计算时设置的雷诺数从区间 $[40,200]$ 内选择，达西数从区间 $[10^{-5},10^{-2}]$ 内选择，表~\ref{tab: DaRe} 列出了达西数和雷诺数可能的组合值，实际计算过的值用对勾（$\surd$）标记。本文未改变孔隙率和应力阶跃参数的值，依承文献 \inlinecite{Yu2007} 的设定，将孔隙率设为 0.7，将应力阶跃的两个系数均设为零：$\varepsilon=0.7$，$\beta_1 = \beta_2=0$。
 
 \begin{table}
@@ -36,84 +34,343 @@
 	\end{tabular}
 \end{table}
 
-由结果可知，非稳态流动开始时所对应的雷诺数的值都在 40 之上，研究的第一步在于确定非稳态流动开始发生时所对应的临界雷诺数，从而确定此次研究的雷诺数范围。接着，本节还将展示非稳态流动的整体概貌，即不同参数下的流动特性，大体了解流动随雷诺数、达西数的变化情况。
+%变了，要改
+由结果可知，非稳态流动开始时所对应的雷诺数的值都在 40 之上，研究的第一步在于确定非稳态流动开始发生时所对应的临界雷诺数，从而确定此次研究的雷诺数范围。接着，本章还将展示非稳态流动的整体概貌，即不同参数下的流动特性，大体了解流动随雷诺数、达西数的变化情况。
 
-根据测量数据，可以得到不同达西数和雷诺数下涡量的等值线图。图~\ref{fig: vorticity-contour-1e-4} 选取了六幅 $Da=0.0001$ 时不同雷诺数下流动已达平稳时涡量的等值线图。此处“平稳”一词指流动特性随时间做周期性变化，在时间平均意义下是稳定的（periodic but statistically stationary state），而“稳定”指流动特性不随时间发生任何变化，每一时刻的状态都是相同的（steady state）。从图中可以看出，$Re=40$ 时流动处于稳态，并在圆柱的后端产生了一对很长的漩涡，随着雷诺数的增大，尾迹的长度逐渐缩短；$Re=45$ 时尾迹已经开始波动，流动开始处于非稳态，与前文所述一致；$Re=50$ 时尾迹更短，非稳态已比较明显，涡脱落之后向下游移动，形成一列整齐的涡街；之后更是完全进入了非稳态，尾迹的长度也越来越短。
+\section{流场的瞬时分布}\label{sec: transient}
 
-\begin{figure}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=40$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_40/flow}}
-		\subfigure[$Re=45$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_45/flow}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_50/flow}}
-		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_90/flow}}
-	\end{minipage}
-	\centering
-	\begin{minipage}{\textwidth}
-		\centering
-		\subfigure[$Re=140$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_140/flow}}
-		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../figs/0.0001_200/flow}}
-	\end{minipage}
-	\caption{$Da=0.0001$ 时不同雷诺数下涡量的等值线图}
-	\label{fig: vorticity-contour-1e-4}
-\end{figure}
+%涡量等值线-远程
+经过计算，可以得到不同达西数和雷诺数下整个流动区域的涡量云图，如图~\ref{fig: vortlong-1e-4} $\sim$ 图~\ref{fig: vortlong-1e-2} 所示。图~\ref{fig: vortlong-1e-4} 选取了六幅 $Da=0.0001$ 时不同雷诺数下流动已达平稳时涡量的等值线图。此处“平稳”一词指流动特性随时间做周期性变化，在时间平均意义下是稳定的（periodic but statistically stationary state），而“稳定”指流动特性不随时间发生任何变化，每一时刻的状态都是相同的（steady state）。涡量值的变化范围是 $-0.5$ 到 0.5。圆柱背面具有正、负涡量值的区域成对出现，表示一对对脱落的涡。从图中可以看出，$Re=40$ 时流动处于稳态，并在圆柱的后端产生了一对很长的漩涡，随着雷诺数的增大，尾迹的长度逐渐缩短；$Re=45$ 时尾迹已经开始波动，流动开始处于非稳态，与前文所述一致；$Re=50$ 时尾迹更短，非稳态已比较明显，涡脱落之后向下游移动，形成一列整齐的涡街；之后更是完全进入了非稳态，尾迹的长度也越来越短，一对对的涡向后整齐地排列。当雷诺数达到 200 时，离圆柱较远处的涡已经变得不再规律，可能是因为此时的三维效应已经比较明显，流体存在沿着圆柱长度方向的流动现象。
 
-图~\ref{fig: vorticity-contour-1e-3} 展示了 $Da=0.001$ 时不同雷诺数下涡量的等值线图。总体的变化情况和 $Da=0.0001$ 时相同，除了在更大的雷诺数下达到非稳态。
+图~\ref{fig: vortlong-1e-3} 展示了 $Da=0.001$ 时不同雷诺数下涡量的等值线图。总体的变化情况和 $Da=0.0001$ 时相同，除了在更大的雷诺数下达到非稳态。图~\ref{fig: vortlong-1e-2} 展示了 $Da=0.01$ 时不同雷诺数下涡量的等值线图。从图中可以看出，直到 $Re=200$ 时尾迹才具有并不大的波动，雷诺数更小的时候流动基本处于稳态。
+
+Karasudani 和 Funakoshi\cite{Karasudani1994} 在实验中研究了圆柱绕流远尾迹处涡街结构的演化，发现沿着下游经过一段距离之后，初始涡街分解成了几乎平行的剪切流动，具有高斯分布，再经过一段距离，形成了具有更大尺度的第二涡街。图~\ref{fig: vortlong-1e-4} 展示了 $Re=50,70,90,120,160,200$ 时涡量的演化情况。从 $Re=70$ 开始，尾迹中的涡沿着下游逐渐演化成了近乎平行的剪切流动。$Re>50$ 时可以观察到两次卡门涡的失真和旋转。卡门涡大约形成于 $x=5$ 的位置并从圆柱表面脱落，同时涡的中心离开了尾迹的中心线。第二次形成于 $x=20$ 或更远的位置。在 $x=15$ 以后，涡中心距尾迹中心线（$y=0$）之间的垂直距离保持不变。沿着尾迹中心线，涡的形状从圆变得扭曲，类似于椭圆形。从 $Re120$ 开始，$x=25$ 之后的远尾迹处相邻的涡逐渐融合起来成为一体。
 
 \begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
 	\centering
+	\includegraphics[width=0.7\textwidth]{../analysis/flow/vort_legend_line}
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=40$]{\includegraphics[width=0.47\textwidth]{../figs/0.001_40/flow}}
-		\subfigure[$Re=45$]{\includegraphics[width=0.47\textwidth]{../figs/0.001_45/flow}}
+		\subfigure[$Re=40$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_40_long_line}.png}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_45_long_line}.png}}
 	\end{minipage}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../figs/0.001_50/flow}}
-		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../figs/0.001_90/flow}}
+		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_50_long_line}.png}}
+		\subfigure[$Re=70$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_70_long_line}.png}}
 	\end{minipage}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=140$]{\includegraphics[width=0.47\textwidth]{../figs/0.001_140/flow}}
-		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../figs/0.001_200/flow}}
+		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_90_long_line}.png}}
+		\subfigure[$Re=120$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_120_long_line}.png}}
 	\end{minipage}
-	\caption{$Da=0.001$ 时不同雷诺数下涡量的等值线图}
-	\label{fig: vorticity-contour-1e-3}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=160$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_160_long_line}.png}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_200_long_line}.png}}
+	\end{minipage}
+	\vskip 0.2em
+	\wuhao 注：图中所示的流动区域为 $-1<x<30$，$-5<y<5$。
+	\vspace{0.2em}
+	\caption{$Da=0.0001$ 时不同雷诺数下的涡量等值线}
+	\label{fig: vortlong-1e-4}
 \end{figure}
-
-图~\ref{fig: vorticity-contour-1e-2} 展示了 $Da=0.01$ 时不同雷诺数下涡量的等值线图。从图中可以看出，直到 $Re=200$ 时尾迹才具有并不大的波动，雷诺数更小的时候流动基本处于稳态。
 
 \begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
 	\centering
+	\includegraphics[width=0.7\textwidth]{../analysis/flow/vort_legend_line}
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_50/flow}}
-		\subfigure[$Re=70$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_70/flow}}
+		\subfigure[$Re=40$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_40_long_line}.png}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_45_long_line}.png}}
 	\end{minipage}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_90/flow}}
-		\subfigure[$Re=120$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_120/flow}}
+		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_50_long_line}.png}}
+		\subfigure[$Re=70$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_70_long_line}.png}}
 	\end{minipage}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[$Re=160$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_160/flow}}
-		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../figs/0.01_200/flow}}
+		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_90_long_line}.png}}
+		\subfigure[$Re=120$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_120_long_line}.png}}
 	\end{minipage}
-	\caption{$Da=0.01$ 时不同雷诺数下涡量的等值线图}
-	\label{fig: vorticity-contour-1e-2}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=160$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_160_long_line}.png}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_200_long_line}.png}}
+	\end{minipage}
+	\vskip 0.2em
+	\wuhao 注：图中所示的流动区域为 $-1<x<30$，$-5<y<5$。
+	\vspace{0.2em}
+	\caption{$Da=0.001$ 时不同雷诺数下的涡量等值线}
+	\label{fig: vortlong-1e-3}
 \end{figure}
 
-\section{平均值行为}\label{sec: average}
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\includegraphics[width=0.7\textwidth]{../analysis/flow/vort_legend_line}
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=60$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_60_long_line}.png}}
+		\subfigure[$Re=70$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_70_long_line}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_90_long_line}.png}}
+		\subfigure[$Re=120$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_120_long_line}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=160$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_160_long_line}.png}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_200_long_line}.png}}
+	\end{minipage}
+	\vskip 0.2em
+	\wuhao 注：图中所示的流动区域为 $-1<x<30$，$-5<y<5$。
+	\vspace{0.2em}
+	\caption{$Da=0.01$ 时不同雷诺数下的涡量等值线}
+	\label{fig: vortlong-1e-2}
+\end{figure}
+
+%涡量等值线-近程
+近程涡量的等值线图如图~\ref{fig: vort-1e-4} $\sim$ 图~\ref{fig: vort-1e-2} 所示。
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\includegraphics[width=0.7\textwidth]{../analysis/flow/vort_legend}
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=40$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_40}.png}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_45}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_50}.png}}
+		\subfigure[$Re=70$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_70}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_90}.png}}
+		\subfigure[$Re=120$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_120}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=160$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_160}.png}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_200}.png}}
+	\end{minipage}
+	\vskip 0.2em
+	\wuhao 注：图中所示的流动区域为 $-1<x<15$，$-4<y<4$。
+	\vspace{0.2em}
+	\caption{$Da=0.0001$ 时近尾迹处不同雷诺数下涡量的等值线}
+	\label{fig: vort-1e-4}
+\end{figure}
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\includegraphics[width=0.7\textwidth]{../analysis/flow/vort_legend}
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=40$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_40}.png}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_45}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_50}.png}}
+		\subfigure[$Re=70$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_70}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_90}.png}}
+		\subfigure[$Re=120$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_120}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=160$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_160}.png}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.001_200}.png}}
+	\end{minipage}
+	\vskip 0.2em
+	\wuhao 注：图中所示的流动区域为 $-1<x<15$，$-4<y<4$。
+	\vspace{0.2em}
+	\caption{$Da=0.001$ 时近尾迹处不同雷诺数下涡量的等值线图}
+	\label{fig: vort-1e-3}
+\end{figure}
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\includegraphics[width=0.7\textwidth]{../analysis/flow/vort_legend}
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=60$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_60}.png}}
+		\subfigure[$Re=70$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_70}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_90}.png}}
+		\subfigure[$Re=120$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_120}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=160$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_160}.png}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.01_200}.png}}
+	\end{minipage}
+	\vskip 0.2em
+	\wuhao 注：图中所示的流动区域为 $-1<x<15$，$-4<y<4$。
+	\vspace{0.2em}
+	\caption{$Da=0.01$ 时近尾迹处不同雷诺数下涡量的等值线图}
+	\label{fig: vort-1e-2}
+\end{figure}
+
+%流线-近程
+近程瞬时速度流线图如图~\ref{fig: streamfunc-1e-4} 所示。
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=40$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_40_streamfn}.png}}
+		\subfigure[$Re=45$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_45_streamfn}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_50_streamfn}.png}}
+		\subfigure[$Re=90$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_90_streamfn}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=140$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_140_streamfn}.png}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_200_streamfn}.png}}
+	\end{minipage}
+	\vspace{0.2em}
+	\caption{$Da=0.0001$ 时不同雷诺数下的流线图}
+	\label{fig: streamfunc-1e-4}
+\end{figure}
+
+%一个周期内的流动变化，四个涡脱落图和四个流线图
+对于非稳态流动，得到流动的周期后，可以继续观察流动在一个周期内的变化情况。以 $Da=1\times 10^{-4}$、$Re=100$ 为例，图~\ref{fig: 4*vortex} 显示了一个周期内的涡量等值线图。如图所示，四个时刻的流动是一致的且连续变化而来，$t=0$ 时刻圆柱背面下方有一个涡准备脱落，它的右侧有一个刚刚脱落的涡；四分之一周期过后，$t=1/4\,T$，下方的涡已经快要脱落；$t=2/4\,T$ 时刻的状态和 $t=0$ 时刻相反，上下对称，即圆柱背面的上方有一个准备脱落的涡；再过四分之一周期，$t=3/4\,T$，此时流动的状态又与 $t=1/4\,T$ 时刻对称。之后，随着时间的演进，这一周期内产生的涡从左向右移动，最终耗散在流体中，同时有新的涡不断产生，重复着这一周期内的现象。
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\includegraphics[width=0.7\textwidth]{../analysis/flow/vort_legend_line}
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$t=0$]{\includegraphics[width=0.47\textwidth]{../analysis/period/{0.0001_100_T0}.png}}
+		\subfigure[$t=1/4\,T$]{\includegraphics[width=0.47\textwidth]{../analysis/period/{0.0001_100_T1}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$t=2/4\,T$]{\includegraphics[width=0.47\textwidth]{../analysis/period/{0.0001_100_T2}.png}}
+		\subfigure[$t=3/4\,T$]{\includegraphics[width=0.47\textwidth]{../analysis/period/{0.0001_100_T3}.png}}
+	\end{minipage}
+	\vskip 0.2em
+	\wuhao 注：图中所示的流动区域为 $-1<x<30$，$-5<y<5$。
+	\vspace{0.2em}
+	\caption{在 0，1/4，2/4，和 3/4 周期时涡的脱落图（$Da=0.0001$，$Re=100$）}
+	\label{fig: 4*vortex}
+\end{figure}
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$t=0$]{\includegraphics[width=0.47\textwidth]{../analysis/period/{0.0001_100_streamfnT0}.png}}
+		\subfigure[$t=1/4\,T$]{\includegraphics[width=0.47\textwidth]{../analysis/period/{0.0001_100_streamfnT1}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$t=2/4\,T$]{\includegraphics[width=0.47\textwidth]{../analysis/period/{0.0001_100_streamfnT2}.png}}
+		\subfigure[$t=3/4\,T$]{\includegraphics[width=0.47\textwidth]{../analysis/period/{0.0001_100_streamfnT3}.png}}
+	\end{minipage}
+	\vskip 0.2em
+	\vspace{0.2em}
+	\caption{在 0，1/4，2/4，和 3/4 周期时涡的流线图（$Da=0.0001$，$Re=100$）}
+	\label{fig: 4*stream}
+\end{figure}
+
+\section{平均量的空间分布}\label{sec: average}
+
+图~\ref{fig: average} 展示了 $Da=0.0001$、$Re=100$ 时平均流场的涡量等值线和流线图。
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[涡量等值线]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_100}.png}}
+		\subfigure[流线]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_100_streamfn}.png}}
+	\end{minipage}
+	\vspace{0.2em}
+	\caption{平均流场的涡量等值线和流线图（$Da=0.0001$，$Re=100$）}
+	\label{fig: average}
+\end{figure}
+
+%沿尾迹中心线的分布（平均速度，方均根速度，平均压力系数，方均根压力系数）
+图~\ref{fig: average-center} 展示了平均速度沿尾迹中心线的分布，图中曲线是 $Da=0.0001$、$Re=100$ 下的情形。图~\ref{fig: average-center} a) 为平均流向速度 $\overline{u}$ 沿尾迹中心线的分布。$x=8.0$ 时平均速度达到局部极大值，在之后的 $8.0<x<30$ 范围内，平均速度逐渐减小。
+
+图~\ref{fig: average-center} c) 为平均压力系数沿尾迹中心线的分布。在尾迹中，压力系数逐渐减小，直到达到最小值，之后开始逐渐增大，在大约 $x=3$ 之前增长十分迅速，随后增长放缓，慢慢恢复至来流值的大小，$x=30$ 时已经十分接近 $C_p=0$。
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[流向平均速度]{\includegraphics[width=0.47\textwidth]{../analysis/average/u_x}}
+		\subfigure[流向平均速度在尾迹附近的放大图]{\includegraphics[width=0.47\textwidth]{../analysis/average/u_x_ma}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[平均压力系数]{\includegraphics[width=0.47\textwidth]{../analysis/average/Cp_x}}
+		\subfigure[平均压力系数在尾迹附近的放大图]{\includegraphics[width=0.47\textwidth]{../analysis/average/Cp_x_ma}}
+	\end{minipage}
+	\vspace{0.2em}
+	\caption{时间平均量沿尾迹中心线的分布（$Da=0.0001$，$Re=100$）}
+	\label{fig: average-center}
+\end{figure}
+
+%沿圆柱表面的分布（平均压力系数，方均根压力系数）
+图~\ref{fig: average-surface} 展示了平均速度沿尾迹中心线的分布。
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\includegraphics[width=0.47\textwidth]{../analysis/average/Cp_theta}
+	% \begin{minipage}{\textwidth}
+	% 	\centering
+	% 	\subfigure[压力系数]{\includegraphics[width=0.47\textwidth]{../analysis/average/Cp_theta}}
+	% 	\subfigure[平均涡量]{\includegraphics[width=0.47\textwidth]{../analysis/average/Vort_theta}}
+	% \end{minipage}
+	\vspace{0.2em}
+	\caption{时间平均量沿圆柱表面的分布（$Da=0.0001$，$Re=100$）}
+	\label{fig: average-surface}
+\end{figure}
 
 \section{本章小结}
 
