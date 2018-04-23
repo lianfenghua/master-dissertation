@@ -12,7 +12,7 @@
 	\caption{多孔圆柱绕流的问题定义}\label{fig: cylinder}
 \end{figure}
 
-\subsection{控制方程} % homogenous fluid region, and porous region
+\subsection{控制方程}
 
 在纯流体区域，不可压缩流动的质量守恒方程、动量守恒方程的微分形式分别为
 
@@ -51,7 +51,7 @@
 \end{tabularx}\vspace{3.15bp}
 在多孔介质中，当地平均量（local average）和内部平均量（intrinsic average）之间存在 Dupuit-Forchheimer关系，例如 $p=\varepsilon p^*$，$\bm{u}=\varepsilon \bm{u}^*$。
 
-\subsection{边界条件} % Including interface between the homogeneous fluid and porous medium regions
+\subsection{边界条件}
 
 多孔介质区域和纯流体区域的边界采用压力阶跃边界条件，切向应力有一差值
 \begin{equation}
@@ -96,7 +96,7 @@
 		& $\varGamma$ & 物理量 $\phi$ 的扩散率；\\
 		& $q_{\phi}$ & 物理量 $\phi$ 的源或汇，即单位时间、单位体积的控制体内生成的 $\phi$。
 \end{tabularx}\vspace{3.15bp}
-假设控制体的中心点为 P，控制面分为东、南、西、北四部分，四个表面的中心点分别用字母 e、s、w、n 表示。方程中的四项分别表示随时间变化项、对流项、扩散项和源项，分别记为 $()$、$F^{\mathrm{c}}$、$F^{\mathrm{d}}$ 和 $Q_{\mathrm{P}}^{\phi}$。这样，公式 \eqref{eq: conservation} 可以简写为
+假设控制体的中心点为 P，控制面分为东、南、西、北四部分，四个表面的中心点分别用字母 e、s、w、n 表示。方程中的四项分别表示随时间变化项、对流项、扩散项和源项，分别记为 $F^t$、$F^{\mathrm{c}}$、$F^{\mathrm{d}}$ 和 $Q_{\mathrm{P}}^{\phi}$。这样，公式 \eqref{eq: conservation} 可以简写为
 \begin{equation}
 	F^t + F^{\mathrm{c}} = F^{\mathrm{d}} + Q_{\mathrm{P}}^{\phi}
 \end{equation}
@@ -125,7 +125,7 @@
 \end{equation}
 东边表面的面积 $S_{\mathrm{e}}$ 为
 \begin{equation}
-	S_{\mathrm{e}} = \sqrt{(S_{\mathrm{e}^x})^2 + (S_{\mathrm{e}^y})^2}
+	S_{\mathrm{e}} = \sqrt{(S_{\mathrm{e}}^x)^2 + (S_{\mathrm{e}}^y)^2}
 \end{equation}
 于是，质量流量可以写为
 \begin{equation}
@@ -137,10 +137,7 @@
 \begin{equation}
 	F_{\mathrm{e}}^{\mathrm{c}} = \int_{S_{\mathrm{e}}}\rho\phi\bm{u}\cdot\bm{n}\diff S \approx \dot m_{\mathrm{e}} \phi_{\mathrm{e}}
 \end{equation}
-\begin{tabularx}{\textwidth}{@{}l@{\quad}r@{——}X@{}}
-	式中 & $\phi_{\mathrm{e}}$ & 物理量 $\phi$ 在东边表面中心点处的值。
-\end{tabularx}\vspace{3.15bp}
-得到 $\phi_{\mathrm{e}}$ 最简单的办法是取相邻两个节点的平均值，这种方法将相邻两个节点的连线视为直线，如果线在表面处的方向发生转折，就会产生一个额外的误差。
+其中 $\phi_{\mathrm{e}}$ 表示物理量 $\phi$ 在东边表面中心点处的值。得到 $\phi_{\mathrm{e}}$ 最简单的办法是取相邻两个节点的平均值，这种方法将相邻两个节点的连线视为直线，如果线在表面处的方向发生转折，就会产生一个额外的误差。
 
 （2）扩散项的近似
 
@@ -156,9 +153,7 @@
 	\frac{\partial\phi}{\partial x}\bm{i} + \frac{\partial\phi}{\partial y}\bm{j} = 
 	\frac{\partial\phi}{\partial n}\bm{n} + \frac{\partial\phi}{\partial t}\bm{t}
 \end{equation}
-\begin{tabularx}{\textwidth}{@{}l@{\quad}r@{——}X@{}}
-	式中 & $n,t$ & 坐标系在某一点的法向和切向。
-\end{tabularx}\vspace{3.15bp}
+其中 $n,t$ 分别表示坐标系在某一点的法向和切向。
 
 如果 $\phi$ 在控制体表面的变化可以用一个形状函数来描述，那就可以求出这个函数在 e 位置对坐标轴各个方向的导数，接着可以得到扩散带来的流率：
 \begin{equation}\label{eq: diffusive flux}
@@ -201,10 +196,7 @@
 	\left(\frac{\partial\phi}{\partial n}\right)_{\mathrm{e}} \approx
 	\frac{\phi_{\mathrm{E}}-\phi_{\mathrm{P}}}{L_{\mathrm{PE}}}
 \end{equation}
-\begin{tabularx}{\textwidth}{@{}l@{\quad}r@{——}X@{}}
-	式中 & $L_{\mathrm{PE}}$ & 相邻两个节点 E 和 P 之间的距离，$L_{\mathrm{PE}} = \abs{\bm{r}_{\mathrm{E}}-\bm{r}_{\mathrm{P}}}$。
-\end{tabularx}\vspace{3.15bp}
-如果是均匀的直角坐标系（当地的法向即为 $x$ 轴的方向），那么 $L_{\mathrm{PE}}=\Delta x$，于是
+其中 $L_{\mathrm{PE}}$ 表示相邻两个节点 E 和 P 之间的距离，$L_{\mathrm{PE}} = \abs{\bm{r}_{\mathrm{E}}-\bm{r}_{\mathrm{P}}}$。如果是均匀的直角坐标系（当地的法向即为 $x$ 轴的方向），那么 $L_{\mathrm{PE}}=\Delta x$，于是
 \begin{equation}
 	\overline{\left(\frac{\partial\phi}{\partial n}\right)}_{\mathrm{e}} =
 	\frac12\frac{\phi_{\mathrm{E}}-\phi_{\mathrm{W}}}{2\Delta x} +
@@ -326,7 +318,7 @@ Muzaferija\cite{Muzaferija1994} 提出了避免这一问题的有效方法。当
 	\frac{\partial}{\partial t}\int_{\varOmega}\rho\phi\diff\varOmega +
 	A_{\mathrm{P}}\phi_{\mathrm{P}} + \sum_l A_l\phi_l = Q_{\mathrm{P}}^* - \left(\frac{\partial p}{\partial x}\right) \Delta\varOmega
 \end{equation}
-上式以各个节点的 $\phi$ 为未知量，通过求解代数方程组得到，压力项通过 SIMPLEC 算法求解 \cite{Van1984}%？
+其中下标“P”表示中心节点，求和指标 $l$ 表示相邻的东、南、西、北四个节点，各个系数 $A$ 均表示得到的线性方程组，$Q_{\mathrm{P}}^*$ 表示其他力所贡献的呃源项的积分。上式以各个节点的 $\phi$ 为未知量，通过求解代数方程组得到，压力项通过 SIMPLEC 算法求解 \cite{Van1984}%？
 \begin{equation}\label{eq: Simplec}
 	u_{\mathrm{e}}^{\mathrm{m}} = \overline{(u^m)}_{\mathrm{e}} - \Delta\varOmega \overline{\left(\frac{1}{A_{\mathrm{P}}^u+\sum_lA_l^u}\right)}_{\mathrm{e}} \left[\left(\frac{\partial p}{\partial x}\right)_{\mathrm{e}}-\overline{\left(\frac{\partial p}{\partial x}\right)}_{\mathrm{e}}\right]^{m-1}
 \end{equation}

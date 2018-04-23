@@ -75,7 +75,7 @@ Karasudani 和 Funakoshi\cite{Karasudani1994} 在实验中研究了圆柱绕流�
 	\vskip 0.2em
 	\wuhao 注：图中所示的流动区域为 $-1<x<30$，$-5<y<5$。
 	\vspace{0.2em}
-	\caption{$Da=0.0001$ 时不同雷诺数下的涡量等值线}
+	\caption{不同雷诺数下的涡量等值线（$Da=0.0001$）}
 	\label{fig: vortlong-1e-4}
 \end{figure}
 
@@ -109,7 +109,7 @@ Karasudani 和 Funakoshi\cite{Karasudani1994} 在实验中研究了圆柱绕流�
 	\vskip 0.2em
 	\wuhao 注：图中所示的流动区域为 $-1<x<30$，$-5<y<5$。
 	\vspace{0.2em}
-	\caption{$Da=0.001$ 时不同雷诺数下的涡量等值线}
+	\caption{不同雷诺数下的涡量等值线（$Da=0.001$）}
 	\label{fig: vortlong-1e-3}
 \end{figure}
 
@@ -137,7 +137,7 @@ Karasudani 和 Funakoshi\cite{Karasudani1994} 在实验中研究了圆柱绕流�
 	\vskip 0.2em
 	\wuhao 注：图中所示的流动区域为 $-1<x<30$，$-5<y<5$。
 	\vspace{0.2em}
-	\caption{$Da=0.01$ 时不同雷诺数下的涡量等值线}
+	\caption{不同雷诺数下的涡量等值线（$Da=0.01$）}
 	\label{fig: vortlong-1e-2}
 \end{figure}
 
@@ -174,7 +174,7 @@ Karasudani 和 Funakoshi\cite{Karasudani1994} 在实验中研究了圆柱绕流�
 % 	\vskip 0.2em
 % 	\wuhao 注：图中所示的流动区域为 $-1<x<15$，$-4<y<4$。
 % 	\vspace{0.2em}
-% 	\caption{$Da=0.0001$ 时近尾迹处不同雷诺数下涡量的等值线}
+% 	\caption{近尾迹处不同雷诺数下涡量的等值线（$Da=0.0001$）}
 % 	\label{fig: vort-1e-4}
 % \end{figure}
 
@@ -208,7 +208,7 @@ Karasudani 和 Funakoshi\cite{Karasudani1994} 在实验中研究了圆柱绕流�
 % 	\vskip 0.2em
 % 	\wuhao 注：图中所示的流动区域为 $-1<x<15$，$-4<y<4$。
 % 	\vspace{0.2em}
-% 	\caption{$Da=0.001$ 时近尾迹处不同雷诺数下涡量的等值线图}
+% 	\caption{近尾迹处不同雷诺数下涡量的等值线（$Da=0.001$）}
 % 	\label{fig: vort-1e-3}
 % \end{figure}
 
@@ -236,7 +236,7 @@ Karasudani 和 Funakoshi\cite{Karasudani1994} 在实验中研究了圆柱绕流�
 % 	\vskip 0.2em
 % 	\wuhao 注：图中所示的流动区域为 $-1<x<15$，$-4<y<4$。
 % 	\vspace{0.2em}
-% 	\caption{$Da=0.01$ 时近尾迹处不同雷诺数下涡量的等值线图}
+% 	\caption{近尾迹处不同雷诺数下涡量的等值线（$Da=0.01$）}
 % 	\label{fig: vort-1e-2}
 % \end{figure}
 
@@ -264,7 +264,7 @@ Karasudani 和 Funakoshi\cite{Karasudani1994} 在实验中研究了圆柱绕流�
 % 		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../analysis/flow/{0.0001_200_streamfn}.png}}
 % 	\end{minipage}
 % 	\vspace{0.2em}
-% 	\caption{$Da=0.0001$ 时不同雷诺数下的流线图}
+% 	\caption{不同雷诺数下的流线图（$Da=0.0001$）}
 % 	\label{fig: streamfunc-1e-4}
 % \end{figure}
 
@@ -318,20 +318,80 @@ Karasudani 和 Funakoshi\cite{Karasudani1994} 在实验中研究了圆柱绕流�
 
 %\subsection{平均流场}
 
-%明天画这里的图，写点字。再写一下公式符号说明。
-图~\ref{fig: average} 展示了 $Da=0.0001$、$Re=100$ 时平均流场的涡量等值线和流线图。
+通过对一个周期内若干个时刻的流场数据进行平均化处理，可以得到一个周期内的平均流场数据，进而可以得到不同参数下的平均流场特性。图~\ref{fig: average-vort} 和图~\ref{fig: average-strfn} 分别展示了 $Da=0.0001$ 时不同雷诺数下平均流场的涡量等值线和流线图，达西数取其他值时也有类似的流场图。从图中可以看出流场几何特性的变化，随着雷诺数的增大，尾迹的长度 $L_f$ 逐渐缩短，这一数值可从下文对图~\ref{fig: average-center-1e-05} 的说明中得到，不同达西数和雷诺数下的回流区长度见表~\ref{tab: geometry}，其中 $x_0$ 表示尾迹末端平均速度为零时的位置，$x_m$ 表示尾迹之后平均速度取得最大值时的位置，$L_f$ 即为回流区的长度，均在下文平均量的分布中有所说明。
+
+\begin{table}[ht]
+	\caption{不同达西数和雷诺数下平均流场的几何特性}\label{tab: geometry}
+	\vspace{.5em}\centering\wuhao
+	\begin{tabular}{*{10}{c}}
+		\toprule[1.5pt]
+		\multirow{2}[3]{*}{$Re$} & \multicolumn{3}{c}{$Da=1\times 10^{-5}$} & \multicolumn{3}{c}{$Da=0.0001$} & \multicolumn{3}{c}{$Da=0.001$} \\
+		\cmidrule[.67pt](lr){2-4} \cmidrule[.67pt](lr){5-7} \cmidrule[.67pt](lr){8-10}
+		& $x_0$ & $x_m$ & $L_f$ & $x_0$ & $x_m$ & $L_f$ & $x_0$ & $x_m$ & $L_f$ \\
+		\midrule[1pt]
+		50	& 2.92 & 无    & 2.42 & 2.89 & 无    & 2.39 & 2.92 & 无    & 2.42 \\
+		70	& 2.33 & 22.07 & 1.83 & 2.30 & 21.61 & 1.80 & 2.30 & 20.28 & 1.80 \\
+		100 & 1.91 & 8.01  & 1.41 & 1.87 & 7.68  & 1.37 & 1.94 & 7.52  & 1.44 \\
+		120 & 1.74 & 6.36  & 1.24 & 1.69 & 6.23  & 1.19 & 1.82 & 6.23  & 1.32 \\
+		160 & 1.49 & 4.95  & 0.99 & 1.44 & 4.65  & 0.94 & 1.69 & 5.27  & 1.19 \\
+		200 & 1.34 & 4.19  & 0.84 & 1.28 & 4.01  & 0.78 & 1.64 & 4.84  & 1.14 \\
+		\bottomrule[1.5pt]
+	\end{tabular}
+\end{table}
+
+\begin{figure}
+	\setlength{\subfigcapskip}{-1bp}
+	\centering
+	\includegraphics[width=0.7\textwidth]{../analysis/flow/vort_legend_line}	
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_50}.png}}
+		\subfigure[$Re=70$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_70}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=100$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_100}.png}}
+		\subfigure[$Re=120$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_120}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=160$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_160}.png}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_200}.png}}
+	\end{minipage}
+	\vskip 0.2em
+	\wuhao 注：图中所示的流动区域为 $-1<x<8$，$-2<y<2$。
+	\vspace{0.2em}
+	\caption{不同雷诺数下平均流场的涡量等值线（$Da=0.0001$）}
+	\label{fig: average-vort}
+\end{figure}
 
 \begin{figure}
 	\setlength{\subfigcapskip}{-1bp}
 	\centering
 	\begin{minipage}{\textwidth}
 		\centering
-		\subfigure[涡量等值线]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_100}.png}}
-		\subfigure[流线]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_100_streamfn}.png}}
+		\subfigure[$Re=50$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_50_strfn}.png}}
+		\subfigure[$Re=70$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_70_strfn}.png}}
 	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=100$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_100_strfn}.png}}
+		\subfigure[$Re=120$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_120_strfn}.png}}
+	\end{minipage}
+	\centering
+	\begin{minipage}{\textwidth}
+		\centering
+		\subfigure[$Re=160$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_160_strfn}.png}}
+		\subfigure[$Re=200$]{\includegraphics[width=0.47\textwidth]{../analysis/average/flow/{0.0001_200_strfn}.png}}
+	\end{minipage}
+	\vskip 0.2em
+	\wuhao 注：图中所示的流动区域为 $-1<x<3.6$，$-1<y<1$。
 	\vspace{0.2em}
-	\caption{平均流场的涡量等值线和流线图（$Da=0.0001$，$Re=100$）}
-	\label{fig: average}
+	\caption{不同雷诺数下平均流场的流线图（$Da=0.0001$）}
+	\label{fig: average-strfn}
 \end{figure}
 
 %\subsection{平均量沿尾迹中心线和圆柱表面的分布}
@@ -390,7 +450,7 @@ $Da=0.0001$ 和 $Da=0.001$ 时平均速度和压力系数沿着 $y=0$ 的分布�
 %沿圆柱表面的分布（平均压力系数，方均根压力系数）
 图~\ref{fig: average-surface-1e-05} 展示了 $Da=1\times 10^{-5}$ 时圆柱表面上平均压力系数的分布。$\theta=0$ 对应于圆柱的前缘点，该点的压力系数 $C_{ps}$ 与图~\ref{fig: average-center-1e-05} 中 $x=-0.5$ 处是同一点，压力系数相同。沿着圆柱表面从上游到下游，随着 $\theta$ 的增大，压力系数逐渐降低，在 $\theta=\theta_0$ 处压力系数降为零，此时的压力等于来流处的压力，$\theta_0$ 的范围是 $37^\circ$--$44^\circ$。$\theta>\theta_0$ 时，压力系数继续降低，直到达到最小值，此时的角度记为 $\theta_m$，范围是 $82^\circ$--$89^\circ$。之后又随着 $\theta$ 的增大而增大，最后随雷诺数的不同而具有不同的变化，$\theta=180^\circ$ 对应圆柱的后缘点，该点的压力系数 $C_{pb}$ 与图~\ref{fig: average-center-1e-05} 中 $x=0.5$ 处是同一点，压力系数相同。比较不同雷诺数下的分布曲线，可以看到，$\theta=0$ 处各个曲线排列紧密，而 $\theta=180^\circ$ 则稀疏许多，即后缘点压力系数对雷诺数的变化更加敏感。对于圆柱表面的任意位置，雷诺数越大，压力系数越小。随着雷诺数的增大，$\theta_m$ 沿着圆柱表面向上游移动；同时，$\theta_0$ 也向上游移动，二者移动的幅度相同，即 $\Delta\theta=\theta_m-\theta_0$ 为常数，$\Delta\theta=44.87^\circ$--$45.62^\circ$。
 
-$Da=0.0001$ 和 $Da=0.001$ 时圆柱表面上的平均压力系数分布与图~\ref{fig: average-surface-1e-05} 具有相同的趋势。其他不同之处由达西数的不同而引起。为了表明达西数的影响，图~\ref{fig: average-center-Re100} 将雷诺数固定为 100，画出了不同达西数下平均压力系数沿圆柱表面的分布曲线。通过观察可知，随着达西数的增大，压力系数降为零的位置 $\theta_0$ 逐渐增大，压力系数的最小值点 $\theta_m$ 也随之增大。在 $\theta=120^\circ$ 之前，不同达西数下压力系数的差别较大，之后则差别较小。在圆柱前后两端，不同达西数所对应的压力系数 $C_{ps}$ 和 $C_{pb}$ 都差别不大，即前后缘点压力系数对达西数的敏感程度相近，这与图~\ref{fig: average-surface-1e-05} 中雷诺数的情形不同。
+$Da=0.0001$ 和 $Da=0.001$ 时圆柱表面上的平均压力系数分布与图~\ref{fig: average-surface-1e-05} 具有相同的趋势。其他不同之处由达西数的不同而引起。为了表明达西数的影响，图~\ref{fig: average-surface-Re100} 将雷诺数固定为 100，画出了不同达西数下平均压力系数沿圆柱表面的分布曲线。通过观察可知，随着达西数的增大，压力系数降为零的位置 $\theta_0$ 逐渐增大，压力系数的最小值点 $\theta_m$ 也随之增大。在 $\theta=120^\circ$ 之前，不同达西数下压力系数的差别较大，之后则差别较小。在圆柱前后两端，不同达西数所对应的压力系数 $C_{ps}$ 和 $C_{pb}$ 都差别不大，即前后缘点压力系数对达西数的敏感程度相近，这与图~\ref{fig: average-surface-1e-05} 中雷诺数的情形不同。
 
 \begin{figure}
 	\setlength{\subfigcapskip}{-1bp}
