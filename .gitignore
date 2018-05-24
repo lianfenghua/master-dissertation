@@ -25,10 +25,9 @@ dist
 *.fdb_latexmk
 *.fls
 *.doc
-*.pdf
 *.toe
 *.xdv
 main.ist
 main.synctex.gz
-.vscode/settings.json
+/.vscode/
 main.docx
