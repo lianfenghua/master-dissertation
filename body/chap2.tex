@@ -53,7 +53,7 @@
 
 \subsection{边界条件}
 
-多孔介质区域和纯流体区域的边界采用压力阶跃边界条件，切向应力有一差值
+多孔介质区域和纯流体区域的边界采用应力阶跃边界条件，切向应力有一差值
 \begin{equation}
 	\left.\frac{\mu}{\varepsilon}\frac{\partial u_t}{\partial n}\right|_{\mathrm{porous}} -
 	\left.\mu\frac{\partial u_t}{\partial n}\right|_{\mathrm{fluid}} =
@@ -67,7 +67,7 @@
 	\left.\frac{\mu}{\varepsilon}\frac{\partial u_n}{\partial n}\right|_{\mathrm{porous}} -
 	\left.\mu\frac{\partial u_n}{\partial n}\right|_{\mathrm{fluid}} = 0
 \end{gather}
-其中多孔介质中的速度 $u_n$ 指达西速度的切向分量，纯流体区域的速度 $u_n$ 指流体速度的切向分量。
+其中多孔介质中的速度 $u_n$ 指达西速度的法向分量，纯流体区域的速度 $u_n$ 指流体速度的法向分量。
 
 %\section{离散方法}\label{sec: discretization method}
 
